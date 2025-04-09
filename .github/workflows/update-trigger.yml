@@ -1,0 +1,27 @@
+name: Handle Docs Update Trigger
+
+on:
+  repository_dispatch:
+    types: [update-docs]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run docs update script
+        run: |
+          # Add your docs update script here
+          # This could be generating new documentation, updating API docs, etc.
+          echo "Updating documentation..."
+
+      - name: Deploy updated docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true

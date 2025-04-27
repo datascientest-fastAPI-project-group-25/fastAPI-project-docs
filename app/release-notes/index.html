@@ -1,0 +1,2842 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the FastAPI Project">
+      
+      
+        <meta name="author" content="datascientest-fastAPI-project-group-25">
+      
+      
+        <link rel="canonical" href="https://datascientest-fastapi-project-group-25.github.io/fastAPI-project-docs/app/release-notes/">
+      
+      
+        <link rel="prev" href="../ci-cd-workflow/">
+      
+      
+        <link rel="next" href="../monitoring/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Release Notes - FastAPI Project Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FastAPI Project Documentation" class="md-header__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FastAPI Project Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  App
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../release/" class="md-tabs__link">
+          
+  
+  Release
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../infra/" class="md-tabs__link">
+          
+  
+  Infrastructure
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FastAPI Project Documentation" class="md-nav__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FastAPI Project Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    App
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/api-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/deployment/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/git-hooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Hooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/workflow/github-actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Backend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRANCHING_STRATEGY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branching Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#latest-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latest Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Latest Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#080" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.8.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.8.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactors_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#071" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.7.1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactors_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrades_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#070" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.7.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.7.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactors_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrades_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#060" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.6.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactors_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Refactors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrades_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docs_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Internal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#050" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.5.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#040" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.4.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#030" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.3.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#022" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#021" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2.1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#020" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#012" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1.2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#011" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1.1
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Release
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Release
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/docs/release-strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/docs/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/docs/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/dockerfile-spec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/aws-architecture-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/aws-infrastructure-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Infrastructure Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/container-strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/deployment-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/infra-setup-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrastructure Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/RELEASE_INTEGRATION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/BRANCHING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branching Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/bootstrap-README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/examples/git-workflow/example.sh" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infra/logging/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="latest-changes">Latest Changes<a class="headerlink" href="#latest-changes" title="Permanent link">&para;</a></h2>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>✨ Add development workflow automation. PR <a href="https://github.com/jaronschulz/fastAPI-project-app/pull/2">#2</a>.</p>
+</li>
+<li>
+<p>Add interactive CLI for feature branch creation (<code>scripts/feature.sh</code>)</p>
+</li>
+<li>Implement automatic PR creation for feature branches</li>
+<li>
+<p>Add commit history to auto-generated PRs</p>
+</li>
+<li>
+<p>✨ Add comprehensive development workflow strategy. PR <a href="https://github.com/jaronschulz/fastAPI-project-app/pull/1">#1</a>.</p>
+</li>
+<li>Implement branch strategy (feat/*, dev, main)</li>
+<li>Add pre-commit hooks for code quality</li>
+<li>Set up automated testing and deployment pipelines</li>
+<li>Document development guidelines</li>
+</ul>
+<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🔧 Update pre-commit configuration with comprehensive checks:</li>
+<li>Style checks (black, flake8, eslint, prettier)</li>
+<li>Security checks (bandit, safety, npm audit)</li>
+<li>Linting &amp; formatting for both backend and frontend</li>
+</ul>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📝 Add detailed development workflow documentation</li>
+<li>📝 Add PR template for consistent reviews</li>
+<li>📝 Update README with comprehensive development guidelines</li>
+</ul>
+<h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🐛 Fix required password validation when editing user fields. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1508">#1508</a> by <a href="https://github.com/jpizquierdo">@jpizquierdo</a>.</li>
+</ul>
+<h3 id="refactors">Refactors<a class="headerlink" href="#refactors" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🎨 Add minor UI tweaks in Skeletons and other components. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1507">#1507</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Add minor UI tweaks. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1506">#1506</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+</ul>
+<h2 id="080">0.8.0<a class="headerlink" href="#080" title="Permanent link">&para;</a></h2>
+<h3 id="features_1">Features<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🛂 Migrate to Chakra UI v3 . PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1496">#1496</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add private, local only, API for usage in E2E tests. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1429">#1429</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>✨ Migrate to latest openapi-ts. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1430">#1430</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+</ul>
+<h3 id="fixes_1">Fixes<a class="headerlink" href="#fixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🧑‍🔧 Replace correct value for 'htmlFor'. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1456">#1456</a> by <a href="https://github.com/wesenbergg">@wesenbergg</a>.</li>
+</ul>
+<h3 id="refactors_1">Refactors<a class="headerlink" href="#refactors_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>♻️ Redirect the user to <code>login</code> if we get 401/403. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1501">#1501</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Refactor reset password test to create normal user instead of using super user. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1499">#1499</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Replace email types from <code>str</code> to <code>EmailStr</code> in <code>config.py</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1492">#1492</a> by <a href="https://github.com/jpizquierdo">@jpizquierdo</a>.</li>
+<li>🔧 Remove unused context from router creation. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1498">#1498</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Remove redundant item deletion code leveraging cascade delete. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1481">#1481</a> by <a href="https://github.com/nauanbek">@nauanbek</a>.</li>
+<li>✏️ Fix a couple of spelling mistakes. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1485">#1485</a> by <a href="https://github.com/rjmunro">@rjmunro</a>.</li>
+<li>🎨 Move <code>prefix</code> and <code>tags</code> to routers. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1439">#1439</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>♻️ Remove modify id script in favor of openapi-ts config. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1434">#1434</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>👷 Improve Playwright CI speed: sharding (parallel runs), run in Docker to use cache, use env vars. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1405">#1405</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Add PaginationFooter component. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1381">#1381</a> by <a href="https://github.com/saltie2193">@saltie2193</a>.</li>
+<li>♻️ Refactored code to use encryption algorithm name from settings for consistency. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1160">#1160</a> by <a href="https://github.com/sameeramin">@sameeramin</a>.</li>
+<li>🔊 Enable logging for email utils by default. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1374">#1374</a> by <a href="https://github.com/ihmily">@ihmily</a>.</li>
+<li>🔧 Add <code>ENV PYTHONUNBUFFERED=1</code> to log output directly to Docker. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1378">#1378</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>💡 Remove unnecessary comment. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1260">#1260</a> by <a href="https://github.com/sebhani">@sebhani</a>.</li>
+</ul>
+<h3 id="upgrades">Upgrades<a class="headerlink" href="#upgrades" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⬆️ Update Dockerfile to use uv version 0.5.11. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1454">#1454</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+</ul>
+<h3 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📝 Removing deprecated manual client SDK step. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1494">#1494</a> by <a href="https://github.com/chandy">@chandy</a>.</li>
+<li>📝 Update Frontend README.md. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1462">#1462</a> by <a href="https://github.com/getmarkus">@getmarkus</a>.</li>
+<li>📝 Update <code>frontend/README.md</code> to also remove Playwright when removing Frontend. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1452">#1452</a> by <a href="https://github.com/youben11">@youben11</a>.</li>
+<li>📝 Update <code>deployment.md</code>, instructions to install GitHub Runner in non-root VMs. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1412">#1412</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Add MailCatcher to <code>development.md</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1387">#1387</a> by <a href="https://github.com/tobiase">@tobiase</a>.</li>
+</ul>
+<h3 id="internal">Internal<a class="headerlink" href="#internal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🔧 Configure path alias for cleaner imports. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1497">#1497</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>Bump vite from 5.0.13 to 5.4.14 in /frontend. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1469">#1469</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump astral-sh/setup-uv from 4 to 5. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1453">#1453</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump astral-sh/setup-uv from 3 to 4. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1433">#1433</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump tiangolo/latest-changes from 0.3.1 to 0.3.2. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1418">#1418</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>👷 Update issue manager workflow. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1398">#1398</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Fix smokeshow, checkout files on CI. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1395">#1395</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update <code>labeler.yml</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1388">#1388</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Add .auth playwright folder to <code>.gitignore</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1383">#1383</a> by <a href="https://github.com/justin-p">@justin-p</a>.</li>
+<li>⬆️ Bump rollup from 4.6.1 to 4.22.5 in /frontend. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1379">#1379</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump astral-sh/setup-uv from 2 to 3. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1364">#1364</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>👷 Update pre-commit end-of-file-fixer hook to exclude email-templates. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1296">#1296</a> by <a href="https://github.com/goabonga">@goabonga</a>.</li>
+<li>⬆ Bump tiangolo/issue-manager from 0.5.0 to 0.5.1. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1332">#1332</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>🔧 Run task by the same Python environment used to run Copier. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1157">#1157</a> by <a href="https://github.com/waketzheng">@waketzheng</a>.</li>
+<li>👷 Tweak generate client to error out if there are errors. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1377">#1377</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Generate and commit client only on same repo PRs, on forks, show the error. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1376">#1376</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h2 id="071">0.7.1<a class="headerlink" href="#071" title="Permanent link">&para;</a></h2>
+<h3 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Migrate from Poetry to <a href="https://github.com/astral-sh/uv"><code>uv</code></a>.</li>
+<li>Simplifications and improvements for Docker Compose files, Traefik Dockerfiles.</li>
+<li>Make the API use its own domain <code>api.example.com</code> and the frontend use <code>dashboard.example.com</code>. This would make it easier to deploy them separately if you needed that.</li>
+<li>The backend and frontend on Docker Compose now listen on the same port as the local development servers, this way you can stop the Docker Compose services and run the local development servers without changing the frontend configuration.</li>
+</ul>
+<h3 id="features_2">Features<a class="headerlink" href="#features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🩺 Add DB healthcheck. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1342">#1342</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h3 id="refactors_2">Refactors<a class="headerlink" href="#refactors_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>♻️ Update settings to use top level <code>.env</code> file. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1359">#1359</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆️ Migrate from Poetry to uv. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1356">#1356</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Remove logic for development dependencies and Jupyter, it was never documented, and I no longer use that trick. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1355">#1355</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Use Docker Compose <code>watch</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1354">#1354</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Use plain base official Python Docker image. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1351">#1351</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🚚 Move location of scripts to simplify file structure. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1352">#1352</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Refactor prestart (migrations), move that to its own container. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1350">#1350</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Include <code>FRONTEND_HOST</code> in CORS origins by default. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1348">#1348</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Simplify domains with <code>api.example.com</code> for API and <code>dashboard.example.com</code> for frontend, improve local development with <code>localhost</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1344">#1344</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Simplify Traefik, remove www-redirects that add complexity. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1343">#1343</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Enable support for Arm Docker images in Mac, remove old patch. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1341">#1341</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Remove duplicate information in the ItemCreate model. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1287">#1287</a> by <a href="https://github.com/jjaakko">@jjaakko</a>.</li>
+</ul>
+<h3 id="upgrades_1">Upgrades<a class="headerlink" href="#upgrades_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⬆️ Upgrade FastAPI. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1349">#1349</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h3 id="docs_1">Docs<a class="headerlink" href="#docs_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>💡 Add comments to Dockerfile with uv references. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1357">#1357</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Add Email Templates to <code>backend/README.md</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1311">#1311</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+</ul>
+<h3 id="internal_1">Internal<a class="headerlink" href="#internal_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>👷 Do not sync labels as it overrides manually added labels. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1307">#1307</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Use uv cache on GitHub Actions. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1366">#1366</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update GitHub Actions format. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1363">#1363</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Use <code>uv</code> for Python env to generate client. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1362">#1362</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Run tests from Python environment (with <code>uv</code>), not from Docker container. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1361">#1361</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔨 Update <code>generate-client.sh</code> script, make it fail on errors, fix generation. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1360">#1360</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Add GitHub Actions workflow to lint backend apart from tests. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1358">#1358</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Improve playwright CI job. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1335">#1335</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>👷 Update <code>issue-manager.yml</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1329">#1329</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>💚 Set <code>include-hidden-files</code> to <code>True</code> when using the <code>upload-artifact</code> GH action. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1327">#1327</a> by <a href="https://github.com/svlandeg">@svlandeg</a>.</li>
+<li>👷🏻 Auto-generate frontend client . PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1320">#1320</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Fix in <code>.github/labeler.yml</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1322">#1322</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Update <code>.github/labeler.yml</code>. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1321">#1321</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Improve GitHub Actions workflows for local testing with act. PR by <a href="https://github.com/jaronschulz">@jaronschulz</a>.</li>
+<li>👷 Update <code>latest-changes</code> GitHub Action. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1315">#1315</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update configs for labeler. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1308">#1308</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update GitHub Action labeler to add only one label. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1304">#1304</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆️ Bump axios from 1.6.2 to 1.7.4 in /frontend. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1301">#1301</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>👷 Update GitHub Action labeler dependencies. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1302">#1302</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update GitHub Action labeler permissions. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1300">#1300</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Add GitHub Action label-checker. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1299">#1299</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Add GitHub Action labeler. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1298">#1298</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Add GitHub Action add-to-project. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1297">#1297</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update issue-manager. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1288">#1288</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h2 id="070">0.7.0<a class="headerlink" href="#070" title="Permanent link">&para;</a></h2>
+<p>Lots of new things! 🎁</p>
+<ul>
+<li>E2E tests with Playwright.</li>
+<li>Mailcatcher configuration, to develop and test email handling.</li>
+<li>Pagination.</li>
+<li>UUIDs for database keys.</li>
+<li>New user sign up.</li>
+<li>Support for deploying to multiple environments (staging, prod).</li>
+<li>Many refactors and improvements.</li>
+<li>Several dependency upgrades.</li>
+</ul>
+<h3 id="features_3">Features<a class="headerlink" href="#features_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✨ Add User Settings e2e tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1271">#1271</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Reset Password e2e tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1270">#1270</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Sign Up e2e tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1268">#1268</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Sign Up and make <code>OPEN_USER_REGISTRATION=True</code> by default. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1265">#1265</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Login e2e tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1264">#1264</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add initial setup for frontend / end-to-end tests with Playwright. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1261">#1261</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add mailcatcher configuration. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1244">#1244</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>✨ Introduce pagination in items. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1239">#1239</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🗃️ Add max_length validation for database models and input data. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1233">#1233</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>✨ Add TanStack React Query devtools in dev build. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1217">#1217</a> by <a href="https://github.com/tomerb">@tomerb</a>.</li>
+<li>✨ Add support for deploying multiple environments (staging, production) to the same server. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1128">#1128</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update CI GitHub Actions to allow running in private repos. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1125">#1125</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h3 id="fixes_2">Fixes<a class="headerlink" href="#fixes_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🐛 Fix welcome page to show logged-in user. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1218">#1218</a> by <a href="https://github.com/tomerb">@tomerb</a>.</li>
+<li>🐛 Fix local Traefik proxy network config to fix Gateway Timeouts. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1184">#1184</a> by <a href="https://github.com/JoelGotsch">@JoelGotsch</a>.</li>
+<li>♻️ Fix tests when first superuser password is changed in .env. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1165">#1165</a> by <a href="https://github.com/billzhong">@billzhong</a>.</li>
+<li>🐛 Fix bug when resetting password. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1171">#1171</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Fix 403 when the frontend has a directory without an index.html. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1094">#1094</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+</ul>
+<h3 id="refactors_3">Refactors<a class="headerlink" href="#refactors_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🚨 Fix Docker build warning. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1283">#1283</a> by <a href="https://github.com/erip">@erip</a>.</li>
+<li>♻️ Regenerate client to use UUID instead of id integers and update frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1281">#1281</a> by <a href="https://github.com/rehanabdul">@rehanabdul</a>.</li>
+<li>♻️ Tweaks in frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1273">#1273</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Add random password util and refactor tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1277">#1277</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor models to use cascade delete relationships . PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1276">#1276</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔥 Remove <code>USERS_OPEN_REGISTRATION</code> config, make registration enabled by default. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1274">#1274</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Reuse database url from config in alembic setup. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1229">#1229</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🔧 Update Playwright config and tests to use env variables. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1266">#1266</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Edit refactor db models to use UUID's instead of integer ID's. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1259">#1259</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>♻️ Update form inputs width. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1263">#1263</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Replace deprecated utcnow() with now(timezone.utc) in utils module. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1247">#1247</a> by <a href="https://github.com/jalvarezz13">@jalvarezz13</a>.</li>
+<li>🎨 Format frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1262">#1262</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Abstraction of specific AddModal component out of the Navbar. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1246">#1246</a> by <a href="https://github.com/ajbloureiro">@ajbloureiro</a>.</li>
+<li>♻️ Update <code>login.tsx</code> to prevent error if username or password are empty. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1257">#1257</a> by <a href="https://github.com/jmondaud">@jmondaud</a>.</li>
+<li>♻️ Refactor recover password. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1242">#1242</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Format and lint . PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1243">#1243</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Run biome after OpenAPI client generation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1226">#1226</a> by <a href="https://github.com/tomerb">@tomerb</a>.</li>
+<li>♻️ Update DeleteConfirmation component to use new service. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1224">#1224</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Update client services. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1223">#1223</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>⚒️ Add minor frontend tweaks. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1210">#1210</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🚚 Move assets to public folder. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1206">#1206</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor redirect labels to simplify removing the frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1208">#1208</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔒️ Refactor migrate from python-jose to PyJWT. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1203">#1203</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔥 Remove duplicated code. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1185">#1185</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Add delete_user_me endpoint and corresponding test cases. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1179">#1179</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✅ Update test to add verification database records. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1178">#1178</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🚸 Use <code>useSuspenseQuery</code> to fetch members and show skeleton. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1174">#1174</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🎨 Format Utils. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1173">#1173</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Use suspense for items page. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1167">#1167</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🚸 Mark login field as required. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1166">#1166</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🚸 Improve login. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1163">#1163</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🥅 Handle AxiosErrors in Login page. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1162">#1162</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🎨 Format frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1161">#1161</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Regenerate frontend client. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1156">#1156</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor rename ModelsOut to ModelsPublic. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1154">#1154</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>♻️ Migrate frontend client generation from <code>openapi-typescript-codegen</code> to <code>@hey-api/openapi-ts</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1151">#1151</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔥 Remove unused exports and update dependencies. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1146">#1146</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Update sentry dns initialization following the environment settings. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1145">#1145</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>♻️ Refactor and tweaks, rename <code>UserCreateOpen</code> to <code>UserRegister</code> and others. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1143">#1143</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Format imports. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1140">#1140</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor and remove <code>React.FC</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1139">#1139</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Add email pattern and refactor in frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1138">#1138</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🥅 Set up Sentry for FastAPI applications. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1136">#1136</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔥 Remove deprecated Docker Compose version key. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1129">#1129</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🎨 Format with Biome . PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1097">#1097</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Update quote style in biome formatter. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1095">#1095</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Replace ESLint and Prettier with Biome to format and lint frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/719">#719</a> by <a href="https://github.com/santigandolfo">@santigandolfo</a>.</li>
+<li>🎨 Replace buttons styling for variants for consistency. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/722">#722</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🛠️ Improve <code>modify-openapi-operationids.js</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/720">#720</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Replace pytest-mock with unittest.mock and remove pytest-cov. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/717">#717</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🛠️ Minor changes in frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/715">#715</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻ Update Docker image to prevent errors in M1 Macs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/710">#710</a> by <a href="https://github.com/dudil">@dudil</a>.</li>
+<li>✏ Fix typo in variable names in <code>backend/app/api/routes/items.py</code> and <code>backend/app/api/routes/users.py</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/711">#711</a> by <a href="https://github.com/disrupted">@disrupted</a>.</li>
+</ul>
+<h3 id="upgrades_2">Upgrades<a class="headerlink" href="#upgrades_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>⬆️ Update SQLModel to version <code>&gt;=0.0.21</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1275">#1275</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>⬆️ Upgrade Traefik. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1241">#1241</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆️ Bump requests from 2.31.0 to 2.32.0 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1211">#1211</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆️ Bump jinja2 from 3.1.3 to 3.1.4 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1196">#1196</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump gunicorn from 21.2.0 to 22.0.0 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1176">#1176</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump idna from 3.6 to 3.7 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1168">#1168</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>🆙 Update React Query to TanStack Query. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1153">#1153</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>Bump vite from 5.0.12 to 5.0.13 in /frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1149">#1149</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump follow-redirects from 1.15.5 to 1.15.6 in /frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/734">#734</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+</ul>
+<h3 id="docs_2">Docs<a class="headerlink" href="#docs_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📝 Update links from tiangolo repo to fastapi org repo. PR <a href="https://github.com/fastapi/full-stack-fastapi-template/pull/1285">#1285</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Add End-to-End Testing with Playwright to frontend <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1279">#1279</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update release-notes.md. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1220">#1220</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✏️ Update <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1205">#1205</a> by <a href="https://github.com/Craz1k0ek">@Craz1k0ek</a>.</li>
+<li>✏️ Fix Adminer URL in <code>deployment.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1194">#1194</a> by <a href="https://github.com/PhilippWu">@PhilippWu</a>.</li>
+<li>📝 Add <code>Enabling Open User Registration</code> to backend docs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1191">#1191</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update release-notes.md. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1164">#1164</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/716">#716</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update instructions to clone for a private repo, including updates. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1127">#1127</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Add docs about CI keys, LATEST_CHANGES and SMOKESHOW_AUTH_KEY. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1126">#1126</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✏️ Fix file path in <code>backend/README.md</code> when not wanting to use migrations. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1116">#1116</a> by <a href="https://github.com/leonlowitzki">@leonlowitzki</a>.</li>
+<li>📝 Add documentation for pre-commit and code linting. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/718">#718</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>📝 Fix localhost URLs in <code>development.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1099">#1099</a> by <a href="https://github.com/efonte">@efonte</a>.</li>
+<li>✏ Update header titles for consistency. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/708">#708</a> by <a href="https://github.com/codesmith-emmy">@codesmith-emmy</a>.</li>
+<li>📝 Update <code>README.md</code>, dark mode screenshot position. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/706">#706</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+</ul>
+<h3 id="internal_2">Internal<a class="headerlink" href="#internal_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🔧 Update deploy workflows to exclude the main repository. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1284">#1284</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Update issue-manager.yml GitHub Action permissions. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1278">#1278</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆️ Bump setuptools from 69.1.1 to 70.0.0 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1255">#1255</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆️ Bump certifi from 2024.2.2 to 2024.7.4 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1250">#1250</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆️ Bump urllib3 from 2.2.1 to 2.2.2 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1235">#1235</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>🔧 Ignore <code>src/routeTree.gen.ts</code> in biome. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1175">#1175</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>👷 Update Smokeshow download artifact GitHub Action. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1198">#1198</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Update Node.js version in <code>.nvmrc</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1192">#1192</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔥 Remove ESLint and Prettier from pre-commit config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1096">#1096</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Update mypy config to ignore .venv directories. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1155">#1155</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🚨 Enable <code>ARG001</code> to prevent unused arguments. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1152">#1152</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🔥 Remove isort configuration, since we use Ruff now. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1144">#1144</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🔧 Update pre-commit config to exclude generated client folder. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1150">#1150</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Change <code>.nvmrc</code> format. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1148">#1148</a> by <a href="https://github.com/patrick91">@patrick91</a>.</li>
+<li>🎨 Ignore alembic from ruff lint and format. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1131">#1131</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔧 Add GitHub templates for discussions and issues, and security policy. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1105">#1105</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>⬆ Bump dawidd6/action-download-artifact from 3.1.2 to 3.1.4. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1103">#1103</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>🔧 Add Biome to pre-commit config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/1098">#1098</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔥 Delete leftover celery file. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/727">#727</a> by <a href="https://github.com/dr-neptune">@dr-neptune</a>.</li>
+<li>⚙️ Update pre-commit config with Prettier and ESLint. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/714">#714</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+</ul>
+<h2 id="060">0.6.0<a class="headerlink" href="#060" title="Permanent link">&para;</a></h2>
+<p>Latest FastAPI, Pydantic, SQLModel 🚀</p>
+<p>Brand new frontend with React, TS, Vite, Chakra UI, TanStack Query/Router, generated client/SDK 🎨</p>
+<p>CI/CD - GitHub Actions 🤖</p>
+<p>Test cov &gt; 90% ✅</p>
+<h3 id="features_4">Features<a class="headerlink" href="#features_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✨ Adopt SQLModel, create models, start using it. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/559">#559</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Upgrade items router with new SQLModel models, simplified logic, and new FastAPI Annotated dependencies. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/560">#560</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Migrate from pgAdmin to Adminer. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/692">#692</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Add support for setting <code>POSTGRES_PORT</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/333">#333</a> by <a href="https://github.com/uepoch">@uepoch</a>.</li>
+<li>⬆ Upgrade Flower version and command. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/447">#447</a> by <a href="https://github.com/maurob">@maurob</a>.</li>
+<li>🎨 Improve styles. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/673">#673</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Update theme. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/666">#666</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Add continuous deployment and refactors needed for it. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/667">#667</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Create endpoint to show password recovery email content and update email template. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/664">#664</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🎨 Format with Prettier. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/646">#646</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✅ Add tests to raise coverage to at least 90% and fix recover password logic. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/632">#632</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>⚙️ Add Prettier and ESLint config with pre-commit. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/640">#640</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Add coverage with Smokeshow to CI and badge. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/638">#638</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>✨ Migrate to TanStack Query (React Query) and TanStack Router. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/637">#637</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✅ Add setup and teardown database for tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/626">#626</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>✨ Update new-frontend client. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/625">#625</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add password reset functionality. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/624">#624</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add private/public routing. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/621">#621</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Add VS Code debug configs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/620">#620</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Add <code>Not Found</code> page. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/595">#595</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add new pages, components, panels, modals, and theme; refactor and improvements in existing components. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/593">#593</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Support delete own account and other tweaks. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/614">#614</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Restructure folders, allow editing of users/items, and implement other refactors and improvements. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/603">#603</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Copier, migrate from Cookiecutter, in a way that supports using the project as is, forking or cloning it. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/612">#612</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>➕ Replace black, isort, flake8, autoflake with ruff and upgrade mypy. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/610">#610</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻ Refactor items and services endpoints to return count and data, and add CI tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/599">#599</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>✨ Add support for updating items and upgrade SQLModel to 0.0.16 (which supports model object updates). PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/601">#601</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Add dark mode to new-frontend and conditional sidebar items. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/600">#600</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Migrate to RouterProvider and other refactors . PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/598">#598</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add delete_user; refactor delete_item. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/594">#594</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add state store to new frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/592">#592</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add form validation to Admin, Items and Login. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/616">#616</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Sidebar to new frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/587">#587</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Login to new frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/585">#585</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Include schemas in generated frontend client. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/584">#584</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Regenerate frontend client with recent changes. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/575">#575</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor API in <code>utils.py</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/573">#573</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Update code for login API. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/571">#571</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✨ Add client in frontend and client generation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/569">#569</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐳 Set up Docker config for new-frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/564">#564</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Set up new frontend with Vite, TypeScript and React. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/563">#563</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📌 Add NodeJS version management and instructions. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/551">#551</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>Add consistent errors for env vars not set. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/200">#200</a>.</li>
+<li>Upgrade Traefik to version 2, keeping in sync with DockerSwarm.rocks. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/199">#199</a>.</li>
+<li>Run tests with <code>TestClient</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/160">#160</a>.</li>
+</ul>
+<h3 id="fixes_3">Fixes<a class="headerlink" href="#fixes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🐛 Fix copier to handle string vars with spaces in quotes. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/631">#631</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🐛 Fix allowing a user to update the email to the same email they already have. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/696">#696</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Set up Sentry only when used. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/671">#671</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Remove unnecessary validation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/662">#662</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Fix bug when editing own user. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/651">#651</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Add <code>onClose</code> to <code>SidebarItems</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/589">#589</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Fix positional argument bug in <code>init_db.py</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/562">#562</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📌 Fix flower Docker image, pin version. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/396">#396</a> by <a href="https://github.com/sanggusti">@sanggusti</a>.</li>
+<li>🐛 Fix Celery worker command. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/443">#443</a> by <a href="https://github.com/bechtold">@bechtold</a>.</li>
+<li>🐛 Fix Poetry installation in Dockerfile and upgrade Python version and packages to fix Docker build. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/480">#480</a> by <a href="https://github.com/little7Li">@little7Li</a>.</li>
+</ul>
+<h3 id="refactors_4">Refactors<a class="headerlink" href="#refactors_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🔧 Add missing dotenv variables. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/554">#554</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⏪ Revert "⚙️ Add Prettier and ESLint config with pre-commit". PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/644">#644</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🙈 Add .prettierignore and include client folder. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/648">#648</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🏷️ Add mypy to the GitHub Action for tests and fixed types in the whole project. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/655">#655</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔒️ Ensure the default values of "changethis" are not deployed. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/698">#698</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>◀ Revert "📸 Rename Dashboard to Home and update screenshots". PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/697">#697</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📸 Rename Dashboard to Home and update screenshots. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/693">#693</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🐛 Fixed items count when retrieving data for all items by user. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/695">#695</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔥 Remove Celery and Flower, they are currently not used nor recommended. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/694">#694</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>✅ Add test for deleting user without privileges. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/690">#690</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor user update. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/689">#689</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📌 Add Poetry lock to git. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/685">#685</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🎨 Adjust color and spacing. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/684">#684</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Avoid creating unnecessary *.pyc files with PYTHONDONTWRITEBYTECODE=1. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/677">#677</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🔧 Add <code>SMTP_SSL</code> option for older SMTP servers. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/365">#365</a> by <a href="https://github.com/Metrea">@Metrea</a>.</li>
+<li>♻️ Refactor logic to allow running pytest tests locally. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/683">#683</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻ Update error messages. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/417">#417</a> by <a href="https://github.com/qu3vipon">@qu3vipon</a>.</li>
+<li>🔧 Add a default Flower password. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/682">#682</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Update VS Code debug config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/676">#676</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Refactor code structure for tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/674">#674</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Set TanStack Router devtools only in dev mode. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/668">#668</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor email logic to allow re-using util functions for testing and development. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/663">#663</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>💬 Improve Delete Account description and confirmation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/661">#661</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor email templates. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/659">#659</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update deployment files and docs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/660">#660</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Remove unused schemas. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/656">#656</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔥 Remove old frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/649">#649</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻ Move project source files to top level from src, update Sentry dependency. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/630">#630</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>♻ Refactor Python folder tree. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/629">#629</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>♻️ Refactor old CRUD utils and tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/622">#622</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Update .env to allow local debug for the backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/618">#618</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Refactor and update CORS, remove trailing slash from new Pydantic v2. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/617">#617</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🎨 Format files with pre-commit and Ruff. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/611">#611</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🚚 Refactor and simplify backend file structure. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/609">#609</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔥 Clean up old files no longer relevant. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/608">#608</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻ Re-structure Docker Compose files, discard Docker Swarm specific logic. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/607">#607</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Refactor update endpoints and regenerate client for new-frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/602">#602</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✨ Add Layout to App. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/588">#588</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Re-enable user update path operations for frontend client generation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/574">#574</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Remove type ignores and add <code>response_model</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/572">#572</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor Users API and dependencies. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/561">#561</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>♻️ Refactor frontend Docker build setup, use plain NodeJS, use custom Nginx config, fix build for old Vue. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/555">#555</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>♻️ Refactor project generation, discard cookiecutter, use plain git/clone/fork. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/553">#553</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>Refactor backend:</li>
+<li>Simplify configs for tools and format to better support editor integration.</li>
+<li>Add mypy configurations and plugins.</li>
+<li>Add types to all the codebase.</li>
+<li>Update types for SQLAlchemy models with plugin.</li>
+<li>Update and refactor CRUD utils.</li>
+<li>Refactor DB sessions to use dependencies with <code>yield</code>.</li>
+<li>Refactor dependencies, security, CRUD, models, schemas, etc. To simplify code and improve autocompletion.</li>
+<li>Change from PyJWT to Python-JOSE as it supports additional use cases.</li>
+<li>Fix JWT tokens using user email/ID as the subject in <code>sub</code>.</li>
+<li>PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/158">#158</a>.</li>
+<li>Simplify <code>docker-compose.*.yml</code> files, refactor deployment to reduce config files. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/153">#153</a>.</li>
+<li>Simplify env var files, merge to a single <code>.env</code> file. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/151">#151</a>.</li>
+</ul>
+<h3 id="upgrades_3">Upgrades<a class="headerlink" href="#upgrades_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>📌 Upgrade Poetry lock dependencies. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/702">#702</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆️ Upgrade Python version and dependencies. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/558">#558</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆ Bump tiangolo/issue-manager from 0.2.0 to 0.5.0. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/591">#591</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump follow-redirects from 1.15.3 to 1.15.5 in /frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/654">#654</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump vite from 5.0.4 to 5.0.12 in /frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/653">#653</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump fastapi from 0.104.1 to 0.109.1 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/687">#687</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>Bump python-multipart from 0.0.6 to 0.0.7 in /backend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/686">#686</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Add <code>uvicorn[standard]</code> to include <code>watchgod</code> and <code>uvloop</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/438">#438</a> by <a href="https://github.com/alonme">@alonme</a>.</li>
+<li>⬆ Upgrade code to support pydantic V2. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/615">#615</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+</ul>
+<h3 id="docs_3">Docs<a class="headerlink" href="#docs_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>🦇 Add dark mode to <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/703">#703</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🍱 Update GitHub image. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/701">#701</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🍱 Add GitHub image. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/700">#700</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🚚 Rename project to Full Stack FastAPI Template. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/699">#699</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Update <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/691">#691</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>✏ Fix typo in <code>development.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/309">#309</a> by <a href="https://github.com/graue70">@graue70</a>.</li>
+<li>📝 Add docs for wildcard domains. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/681">#681</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Add the required GitHub Actions secrets to docs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/679">#679</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Update <code>README.md</code> and <code>deployment.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/678">#678</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update frontend <code>README.md</code>. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/675">#675</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Update deployment docs to use a different directory for traefik-public. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/670">#670</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📸 Add new screenshots . PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/657">#657</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>📝 Refactor README into separate README.md files for backend, frontend, deployment, development. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/639">#639</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Update README. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/628">#628</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Update GitHub Action latest-changes and move release notes to independent file. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/619">#619</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Update internal README and referred files. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/613">#613</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>📝 Update README with in construction notice. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/552">#552</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>Add docs about reporting test coverage in HTML. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/161">#161</a>.</li>
+<li>Add docs about removing the frontend, for an API-only app. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/156">#156</a>.</li>
+</ul>
+<h3 id="internal_3">Internal<a class="headerlink" href="#internal_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>👷 Add Lint to GitHub Actions outside of tests. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/688">#688</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>⬆ Bump dawidd6/action-download-artifact from 2.28.0 to 3.1.2. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/643">#643</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump actions/upload-artifact from 3 to 4. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/642">#642</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>⬆ Bump actions/setup-python from 4 to 5. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/641">#641</a> by <a href="https://github.com/apps/dependabot">@dependabot[bot]</a>.</li>
+<li>👷 Tweak test GitHub Action names. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/672">#672</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>🔧 Add <code>.gitattributes</code> file to ensure LF endings for <code>.sh</code> files. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/658">#658</a> by <a href="https://github.com/estebanx64">@estebanx64</a>.</li>
+<li>🚚 Move new-frontend to frontend. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/652">#652</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Add script for ESLint. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/650">#650</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>⚙️ Add Prettier config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/647">#647</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>🔧 Update pre-commit config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/645">#645</a> by <a href="https://github.com/alejsdev">@alejsdev</a>.</li>
+<li>👷 Add dependabot. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/547">#547</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Fix latest-changes GitHub Action token, strike 2. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/546">#546</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Fix latest-changes GitHub Action token config. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/545">#545</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>👷 Add latest-changes GitHub Action. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/544">#544</a> by <a href="https://github.com/tiangolo">@tiangolo</a>.</li>
+<li>Update issue-manager. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/211">#211</a>.</li>
+<li>Add <a href="https://github.com/sponsors/tiangolo">GitHub Sponsors</a> button. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/201">#201</a>.</li>
+<li>Simplify scripts and development, update docs and configs. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/155">#155</a>.</li>
+</ul>
+<h2 id="050">0.5.0<a class="headerlink" href="#050" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Make the Traefik public network a fixed default of <code>traefik-public</code> as done in DockerSwarm.rocks, to simplify development and iteration of the project generator. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/150">#150</a>.</li>
+<li>Update to PostgreSQL 12. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/148">#148</a>. by <a href="https://github.com/RCheese">@RCheese</a>.</li>
+<li>Use Poetry for package management. Initial PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/144">#144</a> by <a href="https://github.com/RCheese">@RCheese</a>.</li>
+<li>Fix Windows line endings for shell scripts after project generation with Cookiecutter hooks. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/149">#149</a>.</li>
+<li>Upgrade Vue CLI to version 4. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/120">#120</a> by <a href="https://github.com/br3ndonland">@br3ndonland</a>.</li>
+<li>Remove duplicate <code>login</code> tag. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/135">#135</a> by <a href="https://github.com/Nonameentered">@Nonameentered</a>.</li>
+<li>Fix showing email in dashboard when there's no user's full name. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/129">#129</a> by <a href="https://github.com/rlonka">@rlonka</a>.</li>
+<li>Format code with Black and Flake8. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/121">#121</a> by <a href="https://github.com/br3ndonland">@br3ndonland</a>.</li>
+<li>Simplify SQLAlchemy Base class. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/117">#117</a> by <a href="https://github.com/airibarne">@airibarne</a>.</li>
+<li>Update CRUD utils for users, handling password hashing. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/106">#106</a> by <a href="https://github.com/mocsar">@mocsar</a>.</li>
+<li>Use <code>.</code> instead of <code>source</code> for interoperability. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/98">#98</a> by <a href="https://github.com/gucharbon">@gucharbon</a>.</li>
+<li>Use Pydantic's <code>BaseSettings</code> for settings/configs and env vars. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/87">#87</a> by <a href="https://github.com/StephenBrown2">@StephenBrown2</a>.</li>
+<li>Remove <code>package-lock.json</code> to let everyone lock their own versions (depending on OS, etc).</li>
+<li>Simplify Traefik service labels PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/139">#139</a>.</li>
+<li>Add email validation. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/40">#40</a> by <a href="https://github.com/kedod">@kedod</a>.</li>
+<li>Fix typo in README. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/83">#83</a> by <a href="https://github.com/ashears">@ashears</a>.</li>
+<li>Fix typo in README. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/80">#80</a> by <a href="https://github.com/abjoker">@abjoker</a>.</li>
+<li>Fix function name <code>read_item</code> and response code. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/74">#74</a> by <a href="https://github.com/jcaguirre89">@jcaguirre89</a>.</li>
+<li>Fix typo in comment. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/70">#70</a> by <a href="https://github.com/daniel-butler">@daniel-butler</a>.</li>
+<li>Fix Flower Docker configuration. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/37">#37</a> by <a href="https://github.com/dmontagu">@dmontagu</a>.</li>
+<li>Add new CRUD utils based on DB and Pydantic models. Initial PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/23">#23</a> by <a href="https://github.com/ebreton">@ebreton</a>.</li>
+<li>Add normal user testing Pytest fixture. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/20">#20</a> by <a href="https://github.com/ebreton">@ebreton</a>.</li>
+</ul>
+<h2 id="040">0.4.0<a class="headerlink" href="#040" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Fix security on resetting a password. Receive token as body, not query. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/34">#34</a>.</p>
+</li>
+<li>
+<p>Fix security on resetting a password. Receive it as body, not query. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/33">#33</a> by <a href="https://github.com/dmontagu">@dmontagu</a>.</p>
+</li>
+<li>
+<p>Fix SQLAlchemy class lookup on initialization. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/29">#29</a> by <a href="https://github.com/ebreton">@ebreton</a>.</p>
+</li>
+<li>
+<p>Fix SQLAlchemy operation errors on database restart. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/32">#32</a> by <a href="https://github.com/ebreton">@ebreton</a>.</p>
+</li>
+<li>
+<p>Fix locations of scripts in generated README. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/19">#19</a> by <a href="https://github.com/ebreton">@ebreton</a>.</p>
+</li>
+<li>
+<p>Forward arguments from script to <code>pytest</code> inside container. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/17">#17</a> by <a href="https://github.com/ebreton">@ebreton</a>.</p>
+</li>
+<li>
+<p>Update development scripts.</p>
+</li>
+<li>
+<p>Read Alembic configs from env vars. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/9" target="_blank">#9</a> by <a href="https://github.com/ebreton" target="_blank">@ebreton</a>.</p>
+</li>
+<li>
+<p>Create DB Item objects from all Pydantic model's fields.</p>
+</li>
+<li>
+<p>Update Jupyter Lab installation and util script/environment variable for local development.</p>
+</li>
+</ul>
+<h2 id="030">0.3.0<a class="headerlink" href="#030" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/14" target="_blank">#14</a>:</p>
+</li>
+<li>
+<p>Update CRUD utils to use types better.</p>
+</li>
+<li>Simplify Pydantic model names, from <code>UserInCreate</code> to <code>UserCreate</code>, etc.</li>
+<li>Upgrade packages.</li>
+<li>Add new generic "Items" models, crud utils, endpoints, and tests. To facilitate re-using them to create new functionality. As they are simple and generic (not like Users), it's easier to copy-paste and adapt them to each use case.</li>
+<li>Update endpoints/<em>path operations</em> to simplify code and use new utilities, prefix and tags in <code>include_router</code>.</li>
+<li>Update testing utils.</li>
+<li>Update linting rules, relax vulture to reduce false positives.</li>
+<li>Update migrations to include new Items.</li>
+<li>
+<p>Update project README.md with tips about how to start with backend.</p>
+</li>
+<li>
+<p>Upgrade Python to 3.7 as Celery is now compatible too. PR <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/10" target="_blank">#10</a> by <a href="https://github.com/ebreton" target="_blank">@ebreton</a>.</p>
+</li>
+</ul>
+<h2 id="022">0.2.2<a class="headerlink" href="#022" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix frontend hijacking /docs in development. Using latest https://github.com/tiangolo/node-frontend with custom Nginx configs in frontend. <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/6" target="_blank">PR #6</a>.</li>
+</ul>
+<h2 id="021">0.2.1<a class="headerlink" href="#021" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Fix documentation for <em>path operation</em> to get user by ID. <a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/4" target="_blank">PR #4</a> by <a href="https://github.com/mpclarkson" target="_blank">@mpclarkson</a> in FastAPI.</p>
+</li>
+<li>
+<p>Set <code>/start-reload.sh</code> as a command override for development by default.</p>
+</li>
+<li>
+<p>Update generated README.</p>
+</li>
+</ul>
+<h2 id="020">0.2.0<a class="headerlink" href="#020" title="Permanent link">&para;</a></h2>
+<p><strong><a href="https://github.com/tiangolo/full-stack-fastapi-template/pull/2" target="_blank">PR #2</a></strong>:</p>
+<ul>
+<li>Simplify and update backend <code>Dockerfile</code>s.</li>
+<li>Refactor and simplify backend code, improve naming, imports, modules and "namespaces".</li>
+<li>Improve and simplify Vuex integration with TypeScript accessors.</li>
+<li>Standardize frontend components layout, buttons order, etc.</li>
+<li>Add local development scripts (to develop this project generator itself).</li>
+<li>Add logs to startup modules to detect errors early.</li>
+<li>Improve FastAPI dependency utilities, to simplify and reduce code (to require a superuser).</li>
+</ul>
+<h2 id="012">0.1.2<a class="headerlink" href="#012" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix path operation to update self-user, set parameters as body payload.</li>
+</ul>
+<h2 id="011">0.1.1<a class="headerlink" href="#011" title="Permanent link">&para;</a></h2>
+<p>Several bug fixes since initial publication, including:</p>
+<ul>
+<li>Order of path operations for users.</li>
+<li>Frontend sending login data in the correct format.</li>
+<li>Add https://localhost variants to CORS.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

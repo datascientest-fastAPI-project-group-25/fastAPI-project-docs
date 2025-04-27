@@ -1,0 +1,2888 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the FastAPI Project">
+      
+      
+        <meta name="author" content="datascientest-fastAPI-project-group-25">
+      
+      
+        <link rel="canonical" href="https://datascientest-fastapi-project-group-25.github.io/fastAPI-project-docs/app/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="docs/api-docs/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Overview - FastAPI Project Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#devops-demo-application" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FastAPI Project Documentation" class="md-header__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FastAPI Project Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../contributing.md" class="md-tabs__link">
+        
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  App
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../release/" class="md-tabs__link">
+          
+  
+  Release
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infra/" class="md-tabs__link">
+          
+  
+  Infrastructure
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FastAPI Project Documentation" class="md-nav__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FastAPI Project Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    App
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Environment Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment-setup_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Environment Setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Environment Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makefile-the-central-interface-for-all-project-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Makefile - The Central Interface for All Project Tasks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Initialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-login-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Login Credentials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fast-build-system-pnpm-traefik-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fast Build System (pnpm + Traefik + UV)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-based-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-based Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker-based Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting the Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-login-credentials_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Login Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebuilding-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rebuilding Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branching Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pnpm-and-uv-for-faster-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using pnpm and UV for Faster Builds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Feature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-workflows-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Workflows Locally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimized-build-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimized Build Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-container-registry-ghcr-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Container Registry (GHCR) Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub Container Registry (GHCR) Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subdomain-based-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdomain-based Routing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests-with-makefile-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Tests with Makefile (Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-testing-not-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Testing (Not Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subdomain-based-routing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subdomain-Based Routing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-version-bumping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Version Bumping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Conflict Resolution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contributing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/api-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/deployment/guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/git-hooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Hooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docs/workflow/github-actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Backend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="BRANCHING_STRATEGY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branching Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ci-cd-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Release
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Release
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/docs/release-strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/docs/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/docs/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/dockerfile-spec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dockerfile Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/aws-architecture-diagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/aws-infrastructure-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Infrastructure Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/container-strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Container Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/deployment-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/infra-setup-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrastructure Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/RELEASE_INTEGRATION/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/BRANCHING/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Branching Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/bootstrap-README/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/examples/git-workflow/example.sh" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Logging
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Logging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infra/logging/README.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!-- workflow test: improved documentation -->
+
+<h1 id="devops-demo-application">DevOps Demo Application<a class="headerlink" href="#devops-demo-application" title="Permanent link">&para;</a></h1>
+<p><img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&amp;logo=fastapi" /> <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&amp;logo=react&amp;logoColor=black" /> <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&amp;logo=docker&amp;logoColor=white" /> <img alt="GitHub Packages" src="https://img.shields.io/badge/GitHub_Packages-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" /> <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&amp;logo=github-actions&amp;logoColor=white" /> <img alt="Pre-commit" src="https://img.shields.io/badge/Pre--commit-FAB040?style=for-the-badge&amp;logo=pre-commit&amp;logoColor=black" /></p>
+<p>This repository contains a modern full-stack application with a FastAPI backend and React frontend, featuring a comprehensive CI/CD pipeline for AWS deployment. The application demonstrates best practices for DevOps workflows, including automated testing, continuous integration, and continuous deployment.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#-architecture-overview">Architecture Overview</a></li>
+<li><a href="#-development-environment-setup">Development Environment Setup</a></li>
+<li><a href="#-makefile-for-local-setup">Makefile for Local Setup</a></li>
+<li><a href="#-docker-based-development">Docker-based Development</a></li>
+<li><a href="#-local-development">Local Development</a></li>
+<li><a href="#-development-workflow">Development Workflow</a></li>
+<li><a href="#-cicd-pipeline">CI/CD Pipeline</a> (Automated release process)</li>
+<li><a href="#-documentation">Documentation</a></li>
+<li><a href="#-environment-configuration">Environment Configuration</a></li>
+<li><a href="#-testing">Testing</a></li>
+<li><a href="#-troubleshooting">Troubleshooting</a></li>
+<li><a href="#-version-management">Version Management</a></li>
+</ul>
+<h2 id="development-environment-setup">Development Environment Setup<a class="headerlink" href="#development-environment-setup" title="Permanent link">&para;</a></h2>
+<p>After cloning the repository, run the following command to set up git hooks and merge drivers:</p>
+<div class="highlight"><pre><span></span><code>./scripts/setup-git-hooks.sh
+</code></pre></div>
+<p>This ensures that version files are merged correctly during git operations and prevents merge conflicts.</p>
+<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    A[Frontend - React/TypeScript] --&gt; G[Traefik Reverse Proxy]
+    G --&gt; B[Backend - FastAPI]
+    B --&gt; C[(PostgreSQL Database)]
+    D[CI/CD - GitHub Actions] --&gt; E[GitHub Container Registry]
+
+```mermaid
+graph TD
+    A[Frontend - React/TypeScript] --&gt; G[Traefik Reverse Proxy]
+    G --&gt; B[Backend - FastAPI]
+    B --&gt; C[(PostgreSQL Database)]
+    D[CI/CD - GitHub Actions] --&gt; E[GitHub Container Registry]
+    E --&gt; F[Deployment Environment]</code></pre>
+<ul>
+<li><strong>Frontend</strong>: React, TypeScript, TanStack Query, Chakra UI</li>
+<li><strong>Backend</strong>: FastAPI, SQLModel, Pydantic</li>
+<li><strong>Database</strong>: PostgreSQL</li>
+<li><strong>Infrastructure</strong>: Docker, Traefik, GitHub Container Registry (GHCR)</li>
+<li><strong>CI/CD</strong>: GitHub Actions</li>
+<li><strong>Build Tools</strong>: pnpm, Biome, UV (Python package manager)</li>
+</ul>
+<h2 id="development-environment-setup_1">Development Environment Setup<a class="headerlink" href="#development-environment-setup_1" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://www.docker.com/">Docker</a> and Docker Compose</li>
+<li><a href="https://www.python.org/">Python</a> (3.11+)</li>
+<li><a href="https://github.com/astral-sh/uv/">UV</a> for Python package management</li>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://pnpm.io/">pnpm</a> for efficient package management and faster builds</li>
+</ul>
+<h3 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Clone the repository</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/fastAPI-project-app.git
+<span class="nb">cd</span><span class="w"> </span>fastAPI-project-app
+</code></pre></div>
+<ol>
+<li><strong>Use the Makefile for setup</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Setup the project (create .env, install dependencies)</span>
+make<span class="w"> </span>setup
+</code></pre></div>
+<p>Or manually:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate a secure .env file from .env.example</span>
+make<span class="w"> </span>env
+<span class="c1"># Or manually: cp .env.example .env</span>
+<span class="c1"># Edit .env with your preferred settings</span>
+</code></pre></div>
+<ol>
+<li><strong>Install git hooks with pre-commit</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
+pre-commit<span class="w"> </span>install<span class="w"> </span>--hook-type<span class="w"> </span>pre-commit<span class="w"> </span>--hook-type<span class="w"> </span>commit-msg<span class="w"> </span>--hook-type<span class="w"> </span>pre-push
+</code></pre></div>
+<p>This will set up git hooks to automatically format code, run linting checks, and ensure code quality on commit.</p>
+<h2 id="makefile-the-central-interface-for-all-project-tasks">Makefile - The Central Interface for All Project Tasks<a class="headerlink" href="#makefile-the-central-interface-for-all-project-tasks" title="Permanent link">&para;</a></h2>
+<p><strong>The Makefile is the primary and recommended way to interact with this project throughout its entire lifecycle.</strong> From initial setup and development to testing, deployment, and maintenance, all operations should be performed using the Makefile commands for consistency and efficiency.</p>
+<p>All team members should use these commands rather than running individual tools directly to ensure everyone follows the same workflows and processes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show available commands</span>
+make<span class="w"> </span><span class="nb">help</span>
+
+<span class="c1"># Setup the project (create .env, install dependencies)</span>
+make<span class="w"> </span>setup
+
+<span class="c1"># Start Docker containers with pnpm</span>
+make<span class="w"> </span>up
+
+<span class="c1"># Initialize the database (create tables and first superuser)</span>
+make<span class="w"> </span>init-db
+
+<span class="c1"># Stop Docker containers</span>
+make<span class="w"> </span>down
+
+<span class="c1"># Restart Docker containers</span>
+make<span class="w"> </span>restart
+
+<span class="c1"># Run all tests</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># Create a new feature branch</span>
+make<span class="w"> </span>feat<span class="w"> </span><span class="nv">name</span><span class="o">=</span>branch-name
+
+<span class="c1"># Create a new fix branch</span>
+make<span class="w"> </span>fix<span class="w"> </span><span class="nv">name</span><span class="o">=</span>branch-name
+
+<span class="c1"># Create a new fix branch with automerge</span>
+make<span class="w"> </span>fix-automerge<span class="w"> </span><span class="nv">name</span><span class="o">=</span>branch-name
+</code></pre></div>
+<h2 id="database-initialization">Database Initialization<a class="headerlink" href="#database-initialization" title="Permanent link">&para;</a></h2>
+<p>The application automatically initializes the database when the backend container starts, creating all necessary tables and the first superuser account. This process is handled by the prestart script that runs before the FastAPI application starts.</p>
+<p>If you need to manually initialize or reset the database, you can use:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize the database (create tables and first superuser)</span>
+make<span class="w"> </span>init-db
+</code></pre></div>
+<h3 id="default-login-credentials">Default Login Credentials<a class="headerlink" href="#default-login-credentials" title="Permanent link">&para;</a></h3>
+<p>After initialization, you can log in with:</p>
+<ul>
+<li><strong>Email</strong>: admin@example.com</li>
+<li><strong>Password</strong>: The value of <code>FIRST_SUPERUSER_PASSWORD</code> in your <code>.env</code> file</li>
+</ul>
+<h2 id="fast-build-system-pnpm-traefik-uv">Fast Build System (pnpm + Traefik + UV)<a class="headerlink" href="#fast-build-system-pnpm-traefik-uv" title="Permanent link">&para;</a></h2>
+<p>This project uses a modern, high-performance build system:</p>
+<ul>
+<li><strong>pnpm</strong>: For efficient package management with disk space optimization and faster builds</li>
+<li><strong>Traefik</strong>: For efficient reverse proxy and routing</li>
+<li><strong>UV</strong>: For optimized Python package management with dependency groups</li>
+</ul>
+<p>All build operations are handled through Docker and the Makefile for consistency.</p>
+<h2 id="docker-based-development">Docker-based Development<a class="headerlink" href="#docker-based-development" title="Permanent link">&para;</a></h2>
+<p>The easiest way to get started is using our optimized Docker Compose setup, which configures all services including the frontend, backend, and database.</p>
+<h3 id="starting-the-environment">Starting the Environment<a class="headerlink" href="#starting-the-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Using Makefile (recommended)</span>
+make<span class="w"> </span>up
+
+<span class="c1"># Or directly with Docker Compose</span>
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<h3 id="accessing-services">Accessing Services<a class="headerlink" href="#accessing-services" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Frontend</strong>: http://dashboard.localhost</li>
+<li><strong>Backend API</strong>: http://api.localhost</li>
+<li><strong>API Documentation</strong>: http://api.localhost/docs</li>
+<li><strong>API ReDoc</strong>: http://api.localhost/redoc</li>
+<li><strong>API OpenAPI Schema</strong>: http://api.localhost/openapi.json</li>
+<li><strong>Traefik Dashboard</strong>: http://localhost:8080</li>
+</ul>
+<h3 id="default-login-credentials_1">Default Login Credentials<a class="headerlink" href="#default-login-credentials_1" title="Permanent link">&para;</a></h3>
+<p>After initialization, you can log in with:</p>
+<ul>
+<li><strong>Email</strong>: admin@example.com</li>
+<li><strong>Password</strong>: The value of <code>FIRST_SUPERUSER_PASSWORD</code> in your <code>.env</code> file</li>
+</ul>
+<h3 id="viewing-logs">Viewing Logs<a class="headerlink" href="#viewing-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># All services</span>
+docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+
+<span class="c1"># Specific service</span>
+docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>backend
+</code></pre></div>
+<h3 id="rebuilding-services">Rebuilding Services<a class="headerlink" href="#rebuilding-services" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># After code changes</span>
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+
+<span class="c1"># Restart all services</span>
+make<span class="w"> </span>restart
+</code></pre></div>
+<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<p><strong>All development must be done using the Makefile commands</strong> for consistency across environments. The Makefile abstracts away the complexity of individual tools and provides a standardized interface for all development tasks, ensuring that everyone follows the same processes regardless of their local setup.</p>
+<h3 id="branching-strategy">Branching Strategy<a class="headerlink" href="#branching-strategy" title="Permanent link">&para;</a></h3>
+<p>This project follows a structured branching strategy to ensure code quality and streamline the development process:</p>
+<ol>
+<li><strong>Main Branch (<code>main</code>)</strong></li>
+<li>Production-ready code only</li>
+<li>Protected from direct pushes</li>
+<li>Changes only accepted through PRs from the <code>stg</code> branch</li>
+<li>
+<p>Triggers production builds and deployments</p>
+</li>
+<li>
+<p><strong>Staging Branch (<code>stg</code>)</strong></p>
+</li>
+<li>Integration branch for features and fixes</li>
+<li>Protected from direct pushes</li>
+<li>Changes only accepted through PRs from feature/fix branches</li>
+<li>
+<p>Triggers staging deployments for testing</p>
+</li>
+<li>
+<p><strong>Feature Branches (<code>feat/*</code>)</strong></p>
+</li>
+<li>Created for new features or enhancements</li>
+<li>Branched from <code>stg</code></li>
+<li>First push automatically opens a PR to <code>stg</code></li>
+<li>
+<p>Requires passing all tests and code reviews</p>
+</li>
+<li>
+<p><strong>Fix Branches (<code>fix/*</code>)</strong></p>
+</li>
+<li>Created for bug fixes</li>
+<li>Branched from <code>stg</code></li>
+<li>First push automatically opens a PR to <code>stg</code></li>
+<li>
+<p>Can be marked for auto-merge by adding <code>automerge</code> suffix</p>
+</li>
+<li>
+<p><strong>Workflow Automation</strong></p>
+</li>
+<li>When a PR to <code>stg</code> is merged, a new PR to <code>main</code> is automatically created</li>
+<li>All branches are automatically deleted after successful merge</li>
+</ol>
+<p><strong>Creating Branches:</strong></p>
+<p>Always use the Makefile commands to create branches to ensure proper naming and setup:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a feature branch</span>
+make<span class="w"> </span>branch-create<span class="w"> </span><span class="nv">type</span><span class="o">=</span>feat<span class="w"> </span><span class="nv">name</span><span class="o">=</span>your-feature-name
+
+<span class="c1"># Create a fix branch</span>
+make<span class="w"> </span>branch-create<span class="w"> </span><span class="nv">type</span><span class="o">=</span>fix<span class="w"> </span><span class="nv">name</span><span class="o">=</span>your-fix-name
+
+<span class="c1"># Create a fix branch with auto-merge enabled</span>
+make<span class="w"> </span>branch-create<span class="w"> </span><span class="nv">type</span><span class="o">=</span>fix<span class="w"> </span><span class="nv">name</span><span class="o">=</span>your-fix-name<span class="w"> </span><span class="nv">automerge</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="using-pnpm-and-uv-for-faster-builds">Using pnpm and UV for Faster Builds<a class="headerlink" href="#using-pnpm-and-uv-for-faster-builds" title="Permanent link">&para;</a></h3>
+<p>This project uses pnpm for frontend package management and UV for Python package management, significantly improving build times and reducing disk space usage:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Using Makefile (recommended)</span>
+make<span class="w"> </span>up<span class="w">  </span><span class="c1"># Starts all services with pnpm and UV</span>
+
+<span class="c1"># Run pnpm commands through Makefile</span>
+make<span class="w"> </span>build<span class="w">  </span><span class="c1"># Builds all workspaces (ensures containers are running)</span>
+make<span class="w"> </span>lint<span class="w">   </span><span class="c1"># Runs linting across all workspaces</span>
+
+<span class="c1"># Run backend-specific tasks through Makefile</span>
+make<span class="w"> </span>test-backend<span class="w">  </span><span class="c1"># Run backend tests</span>
+make<span class="w"> </span>backend-lint<span class="w">  </span><span class="c1"># Run backend linting</span>
+
+<span class="c1"># Test login functionality</span>
+make<span class="w"> </span>check-login<span class="w">  </span><span class="c1"># Verify API login works correctly</span>
+</code></pre></div>
+<p>pnpm uses a content-addressable store for packages, making installations faster and more efficient. The node_modules are linked rather than copied, saving significant disk space. UV provides similar benefits for Python packages with its efficient dependency resolution and caching.</p>
+<h2 id="development-workflow_1">Development Workflow<a class="headerlink" href="#development-workflow_1" title="Permanent link">&para;</a></h2>
+<h3 id="branch-strategy">Branch Strategy<a class="headerlink" href="#branch-strategy" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Feature Branches (<code>feat/* || fix/*</code>)</strong></p>
+</li>
+<li>
+<p>Create for new features or bug fixes</p>
+</li>
+<li>Must pass pre-commit hooks before pushing</li>
+<li>On push triggers:<ul>
+<li>Style checks (ruff, eslint, prettier)</li>
+<li>Security checks (bandit, npm audit)</li>
+<li>Linting &amp; formatting</li>
+<li>Unit tests</li>
+</ul>
+</li>
+<li>
+<p>Requires PR review to merge to <code>stg</code></p>
+</li>
+<li>
+<p><strong>Staging Branch (<code>stg</code>)</strong></p>
+</li>
+<li>
+<p>Integration branch for feature development</p>
+</li>
+<li>On push triggers:<ul>
+<li>Minimal test suite (unit, linting, security)</li>
+<li>Automatic staging deployment</li>
+</ul>
+</li>
+<li>
+<p>PR to <code>main</code> triggers:</p>
+<ul>
+<li>Full test suite (integration, e2e, API)</li>
+<li>Security scans</li>
+<li>Performance tests</li>
+<li>Documentation updates</li>
+<li>Changelog generation</li>
+</ul>
+</li>
+<li>
+<p><strong>Main Branch (<code>main</code>)</strong></p>
+</li>
+<li>Production-ready code</li>
+<li>Protected branch requiring PR approval</li>
+<li>On push/PR merge:<ul>
+<li>Complete test suite</li>
+<li>Security scans</li>
+<li>Dependency checks</li>
+</ul>
+</li>
+<li>Release tags trigger production deployment</li>
+</ol>
+<h3 id="creating-a-feature">Creating a Feature<a class="headerlink" href="#creating-a-feature" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>stg
+git<span class="w"> </span>pull
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/your-feature-name
+<span class="c1"># Make changes</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add amazing feature&quot;</span>
+<span class="c1"># Create PR to stg branch</span>
+</code></pre></div>
+<h3 id="testing-workflows-locally">Testing Workflows Locally<a class="headerlink" href="#testing-workflows-locally" title="Permanent link">&para;</a></h3>
+<p>You can test GitHub Actions workflows locally using the provided script:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Interactive mode - guides you through workflow selection</span>
+node<span class="w"> </span>scripts/test-workflow-selector.js
+
+<span class="c1"># Test all workflows at once</span>
+node<span class="w"> </span>scripts/test-workflow-selector.js<span class="w"> </span>--all
+</code></pre></div>
+<p>In interactive mode, the script will guide you through selecting the workflow category, specific workflow file, and event type to test. Using the <code>--all</code> flag will test all workflows in all categories.</p>
+<p><strong>Prerequisites:</strong>
+Before running workflow tests, you need to build the custom Docker image used for testing:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build the workflow test Docker image</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>local/workflow-test:latest<span class="w"> </span>-f<span class="w"> </span>.github/utils/Dockerfile.workflow-test<span class="w"> </span>.
+</code></pre></div>
+<h2 id="cicd-pipeline">CI/CD Pipeline<a class="headerlink" href="#cicd-pipeline" title="Permanent link">&para;</a></h2>
+<p>Our CI/CD pipeline uses GitHub Actions for automation and GitHub Container Registry for image management. The actual deployment is handled by a separate infrastructure repository:</p>
+<pre class="mermaid"><code>graph LR
+    A[Push to feat/* or fix/*] --&gt; B{Branch Checks}
+    B --&gt;|Pass| C{fix/*-automerge?}
+    C --&gt;|No| D[Auto-Create PR to stg]
+    C --&gt;|Yes| E[Auto-Merge to stg]
+    D --&gt; F{PR Checks}
+    F --&gt;|Pass| E
+    E --&gt; G[Auto-Create PR to main]
+    G --&gt; H{Main PR Checks}
+    H --&gt;|Pass| I[Create Release]
+    I --&gt; J[Parallel Image Builds]
+    J --&gt; K[Push to GHCR]
+    K --&gt; L[Trigger Helm Release]
+    L --&gt; M[ArgoCD Sync]
+    style K fill:#2496ED,stroke:#fff,stroke-width:2px
+    style M fill:#EF7B4D,stroke:#fff,stroke-width:2px</code></pre>
+<h3 id="optimized-build-pipeline">Optimized Build Pipeline<a class="headerlink" href="#optimized-build-pipeline" title="Permanent link">&para;</a></h3>
+<p>Our build pipeline features several optimizations for faster builds and deployments:</p>
+<ul>
+<li><strong>Parallel Image Building</strong>: Frontend and backend images are built simultaneously using GitHub Actions matrix strategy</li>
+<li><strong>Component-Specific Caching</strong>: Each component has dedicated cache scopes for faster builds</li>
+<li><strong>Semantic Versioning</strong>: Robust version handling across environments</li>
+<li><strong>Automated Security Scanning</strong>: All images are scanned for vulnerabilities before deployment</li>
+<li><strong>Image Verification</strong>: All built images are verified before deployment to ensure they exist and have the required labels</li>
+</ul>
+<h3 id="github-container-registry-ghcr-configuration">GitHub Container Registry (GHCR) Configuration<a class="headerlink" href="#github-container-registry-ghcr-configuration" title="Permanent link">&para;</a></h3>
+<p>We use GitHub Container Registry to store and manage our Docker images:</p>
+<ul>
+<li><strong>Image Repository</strong>: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app</code></li>
+<li><strong>Tagging Strategy</strong>:</li>
+<li>Feature branches: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:feat-branch-name</code></li>
+<li>Fix branches: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:fix-branch-name</code></li>
+<li>Staging branch: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:stg-{hash}</code></li>
+<li>Main branch: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:latest</code></li>
+<li>Versioned releases: <code>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:v1.2.3</code></li>
+</ul>
+<h4 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h4>
+<p>The GitHub Actions workflows automatically authenticate with GHCR using the built-in <code>GITHUB_TOKEN</code> secret. For local development, you can authenticate using:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Login to GHCR</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$GITHUB_TOKEN</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>ghcr.io<span class="w"> </span>-u<span class="w"> </span>USERNAME<span class="w"> </span>--password-stdin
+
+<span class="c1"># Pull an image</span>
+docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/datascientest-fastapi-project-group-25/fastapi-project-app:latest
+</code></pre></div>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>All project documentation is organized in the <code>docs/</code> directory for better maintainability:</p>
+<ul>
+<li><strong><a href="docs/development/guide/">Development Guide</a></strong> - Setting up and running the application locally</li>
+<li><strong><a href="docs/deployment/guide/">Deployment Guide</a></strong> - Deploying using GitHub Actions and GitHub Container Registry</li>
+<li><strong><a href="docs/workflows/github-actions/">GitHub Actions Workflows</a></strong> - Overview and best practices for CI/CD workflows</li>
+<li><strong><a href="docs/git-hooks/">Git Hooks</a></strong> - Documentation for the pre-commit git hooks setup</li>
+<li><strong><a href="docs/release-notes/">Release Notes</a></strong> - Comprehensive changelog of all project changes</li>
+<li><strong><a href="docs/VERSION-MANAGEMENT/">Version Management</a></strong> - How version management works and how to avoid merge conflicts</li>
+</ul>
+<p>Component-specific documentation can be found in the respective directories:</p>
+<ul>
+<li><strong><a href="backend/">Backend Documentation</a></strong></li>
+<li><strong><a href="frontend/">Frontend Documentation</a></strong></li>
+</ul>
+<p>For a complete overview of all documentation, see the <a href="docs/">Documentation Index</a>.</p>
+<h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
+<p>The application uses environment variables for configuration. A sample <code>.env.example</code> file is provided as a template.</p>
+<h3 id="important-environment-variables">Important Environment Variables<a class="headerlink" href="#important-environment-variables" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DOMAIN</code></td>
+<td>Base domain for the application</td>
+<td><code>localhost</code></td>
+</tr>
+<tr>
+<td><code>SECRET_KEY</code></td>
+<td>Used for JWT token generation</td>
+<td><code>your-secret-key</code></td>
+</tr>
+<tr>
+<td><code>BACKEND_CORS_ORIGINS</code></td>
+<td>Configures CORS for the API</td>
+<td><code>["http://localhost"]</code></td>
+</tr>
+<tr>
+<td><code>POSTGRES_USER</code></td>
+<td>Database username</td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td><code>POSTGRES_PASSWORD</code></td>
+<td>Database password</td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td><code>POSTGRES_DB</code></td>
+<td>Database name</td>
+<td><code>app</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="subdomain-based-routing">Subdomain-based Routing<a class="headerlink" href="#subdomain-based-routing" title="Permanent link">&para;</a></h3>
+<p>For local development, the application uses subdomain-based routing:</p>
+<ul>
+<li><code>api.localhost</code> - Backend API</li>
+<li><code>dashboard.localhost</code> - Frontend dashboard</li>
+<li><code>adminer.localhost</code> - Database administration</li>
+</ul>
+<p>To enable this on your local machine, add these entries to your hosts file:</p>
+<div class="highlight"><pre><span></span><code>127.0.0.1 api.localhost
+127.0.0.1 dashboard.localhost
+127.0.0.1 adminer.localhost
+</code></pre></div>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p><strong>All testing should be performed using the Makefile commands</strong> to ensure consistent test environments and configurations. The Makefile provides a unified interface for running all types of tests, from unit tests to GitHub Actions workflow tests.</p>
+<h3 id="running-tests-with-makefile-recommended">Running Tests with Makefile (Recommended)<a class="headerlink" href="#running-tests-with-makefile-recommended" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run all tests</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># Run backend tests only</span>
+make<span class="w"> </span>test-backend
+
+<span class="c1"># Run frontend tests only</span>
+make<span class="w"> </span>test-frontend
+
+<span class="c1"># Run end-to-end tests</span>
+make<span class="w"> </span>test-e2e
+
+<span class="c1"># Test GitHub Actions workflows locally</span>
+make<span class="w"> </span>act-test-main<span class="w">         </span><span class="c1"># Test main-branch.yml workflow</span>
+make<span class="w"> </span>act-test-protection<span class="w">   </span><span class="c1"># Test branch-protection.yml workflow</span>
+make<span class="w"> </span>act-test-all<span class="w">          </span><span class="c1"># Test all workflows</span>
+make<span class="w"> </span>act-test-dry-run<span class="w">      </span><span class="c1"># Dry run of workflows (no execution)</span>
+</code></pre></div>
+<h3 id="manual-testing-not-recommended">Manual Testing (Not Recommended)<a class="headerlink" href="#manual-testing-not-recommended" title="Permanent link">&para;</a></h3>
+<p>If you must run tests manually (not recommended):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Backend Tests</span>
+<span class="nb">cd</span><span class="w"> </span>backend
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pytest
+
+<span class="c1"># Frontend Tests</span>
+<span class="nb">cd</span><span class="w"> </span>frontend
+npm<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># End-to-End Tests</span>
+<span class="nb">cd</span><span class="w"> </span>frontend
+npm<span class="w"> </span>run<span class="w"> </span>test:e2e
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Docker Compose Network Issues</strong></p>
+</li>
+<li>
+<p>Restart Docker: <code>docker compose down &amp;&amp; docker compose up -d</code></p>
+</li>
+<li>
+<p><strong>Database Connection Failures</strong></p>
+</li>
+<li>
+<p>Check database credentials in <code>.env</code></p>
+</li>
+<li>
+<p>Ensure PostgreSQL service is running: <code>docker compose ps</code></p>
+</li>
+<li>
+<p><strong>Frontend API Connection Issues</strong></p>
+</li>
+<li>
+<p>Verify CORS settings in <code>.env</code></p>
+</li>
+<li>
+<p>Check API URL configuration in frontend</p>
+</li>
+<li>
+<p><strong>Login Issues</strong></p>
+</li>
+<li>
+<p>If you can't log in, ensure the database is properly initialized: <code>make init-db</code></p>
+</li>
+<li>Default login credentials are:<ul>
+<li>Email: admin@example.com</li>
+<li>Password: Check your <code>.env</code> file for FIRST_SUPERUSER_PASSWORD</li>
+</ul>
+</li>
+<li>If login still fails, check the backend logs: <code>docker compose logs backend</code></li>
+<li>
+<p>For a complete database reset: <code>docker compose down -v &amp;&amp; make up &amp;&amp; make init-db</code></p>
+</li>
+<li>
+<p><strong>Security Best Practices</strong>:</p>
+</li>
+<li>Never commit <code>.env</code> files to version control</li>
+<li>Use strong, unique passwords for all credentials</li>
+<li>Rotate secrets regularly in production environments</li>
+<li>Use different credentials for development, staging, and production</li>
+</ol>
+<h3 id="subdomain-based-routing_1">Subdomain-Based Routing<a class="headerlink" href="#subdomain-based-routing_1" title="Permanent link">&para;</a></h3>
+<p>The application uses a subdomain-based routing approach for different services:</p>
+<ol>
+<li>
+<p><strong>Local Development</strong>:</p>
+</li>
+<li>
+<p>API: http://api.localhost</p>
+</li>
+<li>Frontend: http://dashboard.localhost</li>
+<li>API Docs: http://api.localhost/docs</li>
+<li>API ReDoc: http://api.localhost/redoc</li>
+<li>
+<p>Adminer: http://db.localhost</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p>The routing is handled by Traefik reverse proxy</p>
+</li>
+<li>Local development uses Traefik with appropriate hosts file entries</li>
+<li>
+<p>CORS is configured in Traefik to allow cross-subdomain communication</p>
+</li>
+<li>
+<p><strong>Startup Information</strong>:</p>
+</li>
+</ol>
+<p>When you run <code>docker compose up</code>, you'll see:</p>
+<ul>
+<li>Application URLs for all services</li>
+<li>Default login credentials</li>
+<li>Database initialization status</li>
+<li>Health status of all components</li>
+</ul>
+<p>If you want to run the application in detached mode, use <code>docker compose up -d</code>.</p>
+<ul>
+<li>
+<p>than you can see the startup information in the logs <code>docker compose logs app-status</code></p>
+</li>
+<li>
+<p><strong>Adding a Host Entry (Local Development)</strong>:
+   <div class="highlight"><pre><span></span><code><span class="c1"># Add to /etc/hosts</span>
+<span class="m">127</span>.0.0.1<span class="w"> </span>api.localhost<span class="w"> </span>dashboard.localhost<span class="w"> </span>db.localhost
+</code></pre></div></p>
+</li>
+</ul>
+<h2 id="version-management">Version Management<a class="headerlink" href="#version-management" title="Permanent link">&para;</a></h2>
+<p>This repository uses semantic versioning (SemVer) for managing versions. The version is stored in two places:</p>
+<ol>
+<li><strong>VERSION file</strong>: Used for Docker image tagging and Helm chart versioning</li>
+<li><strong>package.json</strong>: Used for npm package versioning and semantic-release</li>
+</ol>
+<p>The version is automatically bumped based on the type of changes being made:</p>
+<ul>
+<li><strong>Major version</strong> (X.0.0): Breaking changes (branches with "breaking" or "!" in the name)</li>
+<li><strong>Minor version</strong> (0.X.0): New features (branches starting with "feat/")</li>
+<li><strong>Patch version</strong> (0.0.X): Bug fixes and other changes (branches starting with "fix/")</li>
+</ul>
+<h3 id="automatic-version-bumping">Automatic Version Bumping<a class="headerlink" href="#automatic-version-bumping" title="Permanent link">&para;</a></h3>
+<p>Version bumping happens automatically at two points in the workflow:</p>
+<ol>
+<li><strong>When opening a PR to the <code>stg</code> branch</strong>:</li>
+<li>The VERSION file is bumped based on the branch name</li>
+<li>package.json is synchronized with the VERSION file</li>
+<li>
+<p>The PR title is updated to include the new version</p>
+</li>
+<li>
+<p><strong>When merging a PR to the <code>main</code> branch</strong> (except for stg → main PRs):</p>
+</li>
+<li>package.json is bumped based on the branch name</li>
+<li>VERSION file is synchronized with package.json</li>
+<li>A GitHub Release is created with the new version</li>
+</ol>
+<h3 id="automatic-conflict-resolution">Automatic Conflict Resolution<a class="headerlink" href="#automatic-conflict-resolution" title="Permanent link">&para;</a></h3>
+<p>To avoid merge conflicts in the VERSION file, we've implemented a custom Git merge driver that automatically resolves conflicts by keeping the higher version number.</p>
+<p>For more detailed information about version management, see the <a href="docs/VERSION-MANAGEMENT/">Version Management Documentation</a>.</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Fork the repository</li>
+<li>Create your feature branch (<code>git checkout -b feat/amazing-feature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'feat: add amazing feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feat/amazing-feature</code>)</li>
+<li>Open a Pull Request to the <code>stg</code> branch</li>
+</ol>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<h1 id="trigger-build-sat-apr-21-213000-cest-2024">Trigger build Sat Apr 21 21:30:00 CEST 2024<a class="headerlink" href="#trigger-build-sat-apr-21-213000-cest-2024" title="Permanent link">&para;</a></h1>
+<h1 id="e2e-workflow-test-tue-apr-22-095659-cest-2025">E2E Workflow Test - Tue Apr 22 09:56:59 CEST 2025<a class="headerlink" href="#e2e-workflow-test-tue-apr-22-095659-cest-2025" title="Permanent link">&para;</a></h1>
+<h1 id="e2e-workflow-test-second-attempt-tue-apr-22-102123-cest-2025">E2E Workflow Test - Second attempt - Tue Apr 22 10:21:23 CEST 2025<a class="headerlink" href="#e2e-workflow-test-second-attempt-tue-apr-22-102123-cest-2025" title="Permanent link">&para;</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

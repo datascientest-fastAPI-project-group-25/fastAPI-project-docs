@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: Build Documentation
 
 on:
   # Trigger on push to main branch
@@ -8,13 +8,22 @@ on:
   # Also trigger when changes are pushed to core repositories
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  # Build job
+  build:
     runs-on: ubuntu-latest
-    
+    environment: github-pages
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -26,13 +35,81 @@ jobs:
           pip install -r requirements.txt
           pip install mkdocs-material
 
+      - name: Create missing documentation directories
+        run: |
+          # Create directories for documentation files
+          mkdir -p docs/app/docs/deployment
+          mkdir -p docs/app/docs/workflow
+          mkdir -p docs/release/docs
+          mkdir -p docs/infra/docs
+          mkdir -p docs/app/frontend
+          mkdir -p docs/app/backend
+          mkdir -p docs/infra/examples/git-workflow
+          mkdir -p docs/infra/bootstrap
+          mkdir -p docs/infra/rampup
+
+          # Create placeholder files for missing documentation
+          touch docs/app/docs/deployment/guide.md
+          touch docs/app/docs/workflow/github-actions.md
+          touch docs/app/docs/git-hooks.md
+          touch docs/app/docs/api-docs.md
+          touch docs/app/frontend/README.md
+          touch docs/app/backend/README.md
+          touch docs/app/BRANCHING_STRATEGY.md
+          touch docs/app/ci-cd-workflow.md
+          touch docs/app/release-notes.md
+          touch docs/release/docs/release-strategy.md
+          touch docs/release/docs/troubleshooting.md
+          touch docs/release/docs/quick-start.md
+          touch docs/release/aws-architecture-diagram.md
+          touch docs/release/aws-infrastructure-guide.md
+          touch docs/release/container-strategy.md
+          touch docs/release/deployment-automation.md
+          touch docs/release/infra-setup-guide.md
+          touch docs/release/RELEASE_INTEGRATION.md
+          touch docs/infra/BRANCHING.md
+          touch docs/infra/bootstrap-README.md
+          touch docs/infra/examples/git-workflow/example.sh
+
       - name: Build MkDocs site
         run: mkdocs build
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          force_orphan: true
+          path: ./site
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Install GitHub CLI
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+          # Get the current date for the release tag
+          RELEASE_DATE=$(date +"%Y.%m.%d")
+
+          # Create a release tag
+          git tag -a "v$RELEASE_DATE" -m "Documentation release $RELEASE_DATE" || echo "Tag already exists"
+          git push origin "v$RELEASE_DATE" || echo "Tag already pushed"
+
+          # Create a GitHub release
+          gh release create "v$RELEASE_DATE" \
+            --title "Documentation Release $RELEASE_DATE" \
+            --notes "Documentation update released on $RELEASE_DATE" \
+            --target main || echo "Release already exists"
+
+  # Deployment job
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

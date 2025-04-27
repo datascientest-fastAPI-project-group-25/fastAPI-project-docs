@@ -1,0 +1,17 @@
+name: Trigger Sync on Repository Update
+
+on:
+  repository_dispatch:
+    types: [app-repo-update, release-repo-update, infra-repo-update]
+
+jobs:
+  trigger-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger documentation sync
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: sync-docs
+          client-payload: '{"repository": "${{ github.event.client_payload.repository }}"}'

@@ -1,0 +1,246 @@
+name: Sync All Documentation
+
+on:
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+  repository_dispatch:
+    types: [sync-docs]  # Triggered by other repositories
+  push:
+    branches:
+      - main  # Run when changes are pushed to main branch
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v3
+        with:
+          path: docs-repo
+
+      - name: Checkout app repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-app
+          path: app-repo
+
+      - name: Checkout release repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-release
+          path: release-repo
+
+      - name: Checkout infra repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-infra
+          path: infra-repo
+
+      - name: Sync app documentation
+        run: |
+          mkdir -p docs-repo/docs/app
+          mkdir -p docs-repo/docs/app/frontend
+          mkdir -p docs-repo/docs/app/backend
+
+          # Copy main README with verification
+          if [ -f "app-repo/README.md" ]; then
+            echo "Copying app README.md to docs-repo/docs/app/README.md"
+            cp -f app-repo/README.md docs-repo/docs/app/README.md
+            cat docs-repo/docs/app/README.md | head -5  # Print first 5 lines to verify content
+          else
+            echo "WARNING: app-repo/README.md not found!"
+            ls -la app-repo/  # List files to debug
+          fi
+
+          # Copy frontend README if it exists
+          if [ -f "app-repo/frontend/README.md" ]; then
+            echo "Copying frontend README.md"
+            cp -f app-repo/frontend/README.md docs-repo/docs/app/frontend/README.md
+            cat docs-repo/docs/app/frontend/README.md | head -5  # Print first 5 lines to verify content
+          else
+            echo "WARNING: app-repo/frontend/README.md not found!"
+            ls -la app-repo/frontend/ || echo "Frontend directory not found"
+          fi
+
+          # Copy backend README if it exists
+          if [ -f "app-repo/backend/README.md" ]; then
+            echo "Copying backend README.md"
+            cp -f app-repo/backend/README.md docs-repo/docs/app/backend/README.md
+            cat docs-repo/docs/app/backend/README.md | head -5  # Print first 5 lines to verify content
+          else
+            echo "WARNING: app-repo/backend/README.md not found!"
+            ls -la app-repo/backend/ || echo "Backend directory not found"
+          fi
+
+          # Copy docs folder if it exists
+          if [ -d "app-repo/docs" ]; then
+            echo "Copying docs folder"
+            mkdir -p docs-repo/docs/app/docs
+            cp -rf app-repo/docs/* docs-repo/docs/app/docs/
+            ls -la docs-repo/docs/app/docs/  # List files to verify
+          fi
+
+          # Copy scripts documentation if it exists
+          if [ -d "app-repo/scripts" ] && [ -f "app-repo/scripts/README.md" ]; then
+            echo "Copying scripts README.md"
+            mkdir -p docs-repo/docs/app/scripts
+            cp -f app-repo/scripts/README.md docs-repo/docs/app/scripts/README.md
+          fi
+
+          # Copy monitoring and logging docs if they exist
+          if [ -d "app-repo/monitoring" ]; then
+            echo "Copying monitoring folder"
+            mkdir -p docs-repo/docs/app/monitoring
+            cp -rf app-repo/monitoring/* docs-repo/docs/app/monitoring/
+          fi
+
+          if [ -d "app-repo/logging" ]; then
+            echo "Copying logging folder"
+            mkdir -p docs-repo/docs/app/logging
+            cp -rf app-repo/logging/* docs-repo/docs/app/logging/
+          fi
+
+          echo "App documentation sync completed"
+
+      - name: Sync release documentation
+        run: |
+          mkdir -p docs-repo/docs/release
+          mkdir -p docs-repo/docs/release/docs
+
+          # Copy main README with verification
+          if [ -f "release-repo/README.md" ]; then
+            echo "Copying release README.md to docs-repo/docs/release/README.md"
+            cp -f release-repo/README.md docs-repo/docs/release/README.md
+            cat docs-repo/docs/release/README.md | head -5  # Print first 5 lines to verify content
+          else
+            echo "WARNING: release-repo/README.md not found!"
+            ls -la release-repo/  # List files to debug
+          fi
+
+          # Copy docs folder if it exists
+          if [ -d "release-repo/docs" ]; then
+            echo "Copying docs folder"
+            cp -rf release-repo/docs/* docs-repo/docs/release/docs/
+            ls -la docs-repo/docs/release/docs/  # List files to verify
+          fi
+
+          # Copy specific documentation files if they exist
+          if [ -f "release-repo/release-strategy.md" ]; then
+            echo "Copying release-strategy.md"
+            cp -f release-repo/release-strategy.md docs-repo/docs/release/release-strategy.md
+          fi
+
+          if [ -f "release-repo/quick-start.md" ]; then
+            echo "Copying quick-start.md"
+            cp -f release-repo/quick-start.md docs-repo/docs/release/quick-start.md
+          fi
+
+          if [ -f "release-repo/troubleshooting.md" ]; then
+            echo "Copying troubleshooting.md"
+            cp -f release-repo/troubleshooting.md docs-repo/docs/release/troubleshooting.md
+          fi
+
+          # Copy monitoring and logging docs if they exist
+          if [ -d "release-repo/monitoring" ]; then
+            echo "Copying monitoring folder"
+            mkdir -p docs-repo/docs/release/monitoring
+            cp -rf release-repo/monitoring/* docs-repo/docs/release/monitoring/
+          fi
+
+          if [ -d "release-repo/logging" ]; then
+            echo "Copying logging folder"
+            mkdir -p docs-repo/docs/release/logging
+            cp -rf release-repo/logging/* docs-repo/docs/release/logging/
+          fi
+
+          echo "Release documentation sync completed"
+
+      - name: Sync infra documentation
+        run: |
+          mkdir -p docs-repo/docs/infra
+          mkdir -p docs-repo/docs/infra/examples/git-workflow
+
+          # Copy main README with verification
+          if [ -f "infra-repo/README.md" ]; then
+            echo "Copying infra README.md to docs-repo/docs/infra/README.md"
+            cp -f infra-repo/README.md docs-repo/docs/infra/README.md
+            cat docs-repo/docs/infra/README.md | head -5  # Print first 5 lines to verify content
+          else
+            echo "WARNING: infra-repo/README.md not found!"
+            ls -la infra-repo/  # List files to debug
+          fi
+
+          # Copy docs folder if it exists
+          if [ -d "infra-repo/docs" ]; then
+            echo "Copying docs folder"
+            mkdir -p docs-repo/docs/infra/docs
+            cp -rf infra-repo/docs/* docs-repo/docs/infra/docs/
+            ls -la docs-repo/docs/infra/docs/  # List files to verify
+          fi
+
+          # Copy specific documentation files if they exist
+          if [ -f "infra-repo/BRANCHING.md" ]; then
+            echo "Copying BRANCHING.md"
+            cp -f infra-repo/BRANCHING.md docs-repo/docs/infra/BRANCHING.md
+          fi
+
+          if [ -f "infra-repo/bootstrap-README.md" ]; then
+            echo "Copying bootstrap-README.md"
+            cp -f infra-repo/bootstrap-README.md docs-repo/docs/infra/bootstrap-README.md
+          fi
+
+          # Copy examples if they exist
+          if [ -d "infra-repo/examples" ] && [ -d "infra-repo/examples/git-workflow" ]; then
+            echo "Copying git-workflow examples"
+            cp -rf infra-repo/examples/git-workflow/* docs-repo/docs/infra/examples/git-workflow/
+            ls -la docs-repo/docs/infra/examples/git-workflow/  # List files to verify
+          fi
+
+          # Copy monitoring and logging docs if they exist
+          if [ -d "infra-repo/monitoring" ]; then
+            echo "Copying monitoring folder"
+            mkdir -p docs-repo/docs/infra/monitoring
+            cp -rf infra-repo/monitoring/* docs-repo/docs/infra/monitoring/
+          fi
+
+          if [ -d "infra-repo/logging" ]; then
+            echo "Copying logging folder"
+            mkdir -p docs-repo/docs/infra/logging
+            cp -rf infra-repo/logging/* docs-repo/docs/infra/logging/
+          fi
+
+          echo "Infra documentation sync completed"
+
+      - name: Configure Git
+        run: |
+          cd docs-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push changes
+        run: |
+          cd docs-repo
+          git add .
+
+          # Get current date for the commit message
+          CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S")
+
+          # Check if there are changes to commit
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "docs: sync documentation from all repositories on ${CURRENT_DATE}"
+            git push
+            echo "Documentation synchronized successfully!"
+          else
+            echo "No changes to commit. Documentation is already up to date."
+          fi
+
+      - name: Trigger docs build
+        if: success()
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: build-docs

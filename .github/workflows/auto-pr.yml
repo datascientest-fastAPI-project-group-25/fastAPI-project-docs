@@ -1,0 +1,87 @@
+name: Auto Create PR
+
+on:
+  push:
+    branches:
+      - 'feat/**'
+      - 'fix/**'
+      - 'hotfix/**'
+    paths-ignore:
+      - '.github/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+          
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Extract branch name
+        shell: bash
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+      
+      - name: Determine PR type
+        shell: bash
+        run: |
+          if [[ "${{ env.BRANCH_NAME }}" == feat/* ]]; then
+            echo "PR_TYPE=Feature" >> $GITHUB_ENV
+            echo "PR_LABEL=enhancement" >> $GITHUB_ENV
+          elif [[ "${{ env.BRANCH_NAME }}" == fix/* ]]; then
+            echo "PR_TYPE=Fix" >> $GITHUB_ENV
+            echo "PR_LABEL=bug" >> $GITHUB_ENV
+          elif [[ "${{ env.BRANCH_NAME }}" == hotfix/* ]]; then
+            echo "PR_TYPE=Hotfix" >> $GITHUB_ENV
+            echo "PR_LABEL=hotfix" >> $GITHUB_ENV
+          fi
+      
+      - name: Create Pull Request with GitHub CLI
+        id: create-pr
+        env:
+          GH_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
+        run: |
+          # Check if an open PR already exists from this branch to main
+          existing_pr_url=$(gh pr list --head "${{ env.BRANCH_NAME }}" --base main --state open --json url --jq '.[0].url')
+
+          if [ -n "$existing_pr_url" ]; then
+            echo "Pull request already exists: $existing_pr_url"
+            pr_url="$existing_pr_url"
+            pr_number=$(basename "$pr_url" | cut -d'/' -f1)
+            # Set outputs
+            echo "pull-request-url=$pr_url" >> $GITHUB_OUTPUT
+            echo "pull-request-number=$pr_number" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # No open PR found, create a new one
+          pr_url=$(gh pr create \
+            --base main \
+            --head "${{ env.BRANCH_NAME }}" \
+            --title "${{ env.PR_TYPE }}: ${{ env.BRANCH_NAME }}" \
+            --body $'## Description\n\nAutomated PR created from branch ${{ env.BRANCH_NAME }}\n\n## Changes\n\n- Please describe the changes made in this PR\n\n## Checklist\n\n- [ ] Documentation has been updated\n- [ ] Tests have been added/updated\n- [ ] Code follows project standards' \
+            --label "${{ env.PR_LABEL }}" \
+            --draft)
+
+          echo "PR URL: $pr_url"
+
+          # Extract PR number from URL
+          pr_number=$(basename "$pr_url" | cut -d'/' -f1)
+
+          # Set outputs
+          echo "pull-request-url=$pr_url" >> $GITHUB_OUTPUT
+          echo "pull-request-number=$pr_number" >> $GITHUB_OUTPUT
+      
+      - name: PR Details
+        if: steps.create-pr.outputs.pull-request-number
+        run: |
+          echo "PR #${{ steps.create-pr.outputs.pull-request-number }} created: ${{ steps.create-pr.outputs.pull-request-url }}"

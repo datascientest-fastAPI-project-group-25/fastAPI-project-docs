@@ -1,0 +1,1419 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the FastAPI Project">
+      
+      
+        <meta name="author" content="datascientest-fastAPI-project-group-25">
+      
+      
+      
+        <link rel="prev" href="../release/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Overview - FastAPI Project Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fastapi-project-infrastructure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FastAPI Project Documentation" class="md-header__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FastAPI Project Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../app/" class="md-tabs__link">
+          
+  
+  App
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../release/" class="md-tabs__link">
+          
+  
+  Release
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Infrastructure
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FastAPI Project Documentation" class="md-nav__button md-logo" aria-label="FastAPI Project Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FastAPI Project Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    App
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            App
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Release
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Release
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Infrastructure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Infrastructure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Directory Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Quick Start
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localstack-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      LocalStack Development
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerized-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerized Environments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Make Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Make Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root-makefile-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Makefile Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-makefile-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootstrap Makefile Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-based-bootstrap-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-based Bootstrap Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 AWS Credentials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 AWS Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-in-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage in Workflows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌍 Environment Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Order
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Development Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌿 Git Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌿 Git Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-structure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      📄 License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="fastapi-project-infrastructure">FastAPI Project Infrastructure<a class="headerlink" href="#fastapi-project-infrastructure" title="Permanent link">&para;</a></h1>
+<p>Infrastructure as Code (IaC) repository for managing the FastAPI project infrastructure using Terraform.</p>
+<h2 id="project-overview">📋 Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>This repository contains the infrastructure code for the FastAPI project, organized into two main components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td>Sets up foundational AWS resources (S3, DynamoDB, IAM)</td>
+</tr>
+<tr>
+<td><strong>Terraform</strong></td>
+<td>Manages the main application infrastructure</td>
+</tr>
+</tbody>
+</table>
+<h2 id="architecture">🏗️ Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p><img alt="Infrastructure Architecture" src="https://mermaid.ink/img/pako:eNp1kMFqwzAMhl9F-NRCXyDQQw9bKYUNtl56ETLWEjOcyMhyxyB594nEhbXQnWT9_z99kjdUziFqVK_4cOQJPFqPgRJYCMxJBPZgKdCMNmAiS5FCYOcpwYTOUqDXYCjQO_qEgZxlP1MIFNlToBHHGSKNZMFjILvgGMgvOEZyC46JhoVjJrtwLDTNHAu5mWOlbuJYyU8cG7ULx0bNzLFTvXDs5CeOg-qF46Bm5jjITxwntTPHSe3CcZKfOC6qFo6L6pnjIj9x3FSNjpvKwXFTMThuciPjTfngeJPvHR_Kro6P8r3jU9nV8Sl_c3yW7Ryf8p3jS9nW8SXfOr7Kto6v8q3ju2zr-C7fOH7Kto6f8o3jV9nW8avs4vhd1jt-l_WO_2Wd43_Z2vG_rHP8K1s7_pV1jv9la8e_ss7xXbZ2fJf_AK6Jqzc?type=png" /></p>
+<h2 id="directory-structure">📁 Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bootstrap/</code></td>
+<td>Infrastructure bootstrap code</td>
+</tr>
+<tr>
+<td><code>bootstrap/environments/</code></td>
+<td>Environment-specific configurations</td>
+</tr>
+<tr>
+<td><code>bootstrap/modules/</code></td>
+<td>Reusable Terraform modules</td>
+</tr>
+<tr>
+<td><code>bootstrap/scripts/</code></td>
+<td>Utility scripts for environment setup</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-start">🚀 Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>AWS CLI</strong>: Installed and configured with appropriate credentials</li>
+<li><strong>Terraform</strong>: Version 1.0.0 or later</li>
+<li><strong>Make</strong>: For running automation commands</li>
+<li><strong>Docker</strong>: Required for running LocalStack and the dockerized environments</li>
+</ol>
+<h3 id="environment-setup">Environment Setup<a class="headerlink" href="#environment-setup" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Clone the repository</strong>
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/fastapi-project-infra.git
+<span class="nb">cd</span><span class="w"> </span>fastapi-project-infra
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Set up environment variables</strong>
+   <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>bootstrap/.env.base.example<span class="w"> </span>bootstrap/.env.base
+<span class="c1"># Edit the file with your AWS credentials</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="localstack-development">LocalStack Development<a class="headerlink" href="#localstack-development" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start LocalStack</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>start-localstack
+
+<span class="c1"># Initialize Terraform</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>local-init
+
+<span class="c1"># Plan and apply changes</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>local-plan
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>local-apply
+
+<span class="c1"># Run a bootstrap dry run (create, test, destroy resources)</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>localstack-bootstrap-dryrun
+
+<span class="c1"># Clean up when done</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>local-destroy
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>stop-localstack
+</code></pre></div>
+<h3 id="aws-deployment">AWS Deployment<a class="headerlink" href="#aws-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Prepare AWS environment (package Lambda functions)</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-prepare
+
+<span class="c1"># Set up Terraform state resources</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-setup-state
+
+<span class="c1"># Initialize Terraform</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-init
+
+<span class="c1"># Plan and apply changes</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-plan
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-apply
+
+<span class="c1"># Run a bootstrap dry run (create, test, destroy resources)</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>aws-bootstrap-dryrun
+</code></pre></div>
+<h3 id="dockerized-environments">Dockerized Environments<a class="headerlink" href="#dockerized-environments" title="Permanent link">&para;</a></h3>
+<p>Both bootstrap environments (AWS and LocalStack) have been dockerized to ensure they can run on any system.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build Docker images</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-build
+
+<span class="c1"># Start AWS environment in Docker</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-aws
+
+<span class="c1"># Start LocalStack environment in Docker</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-localstack
+
+<span class="c1"># Run bootstrap dry run in AWS using Docker</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-aws-bootstrap-dryrun
+
+<span class="c1"># Run bootstrap dry run in LocalStack using Docker</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-localstack-bootstrap-dryrun
+
+<span class="c1"># Test both environments</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-test
+
+<span class="c1"># Clean up Docker resources</span>
+make<span class="w"> </span>-C<span class="w"> </span>bootstrap<span class="w"> </span>docker-clean
+</code></pre></div>
+<p>For more information, see the <a href="bootstrap/README.md">Bootstrap README</a>.</p>
+<h2 id="make-commands">🛠️ Make Commands<a class="headerlink" href="#make-commands" title="Permanent link">&para;</a></h2>
+<h3 id="root-makefile-commands">Root Makefile Commands<a class="headerlink" href="#root-makefile-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make ENV=aws tf_plan</code></td>
+<td>Run Terraform plan for AWS environment</td>
+</tr>
+<tr>
+<td><code>make tf_plan</code></td>
+<td>Run Terraform plan for LocalStack environment (default)</td>
+</tr>
+<tr>
+<td><code>make ENV=test test</code></td>
+<td>Run tests using test environment</td>
+</tr>
+<tr>
+<td><code>make ENV=local-test act_mock</code></td>
+<td>Run GitHub Actions locally with Act</td>
+</tr>
+<tr>
+<td><code>make git_feature</code></td>
+<td>Create a new feature branch</td>
+</tr>
+<tr>
+<td><code>make git_fix</code></td>
+<td>Create a new fix branch</td>
+</tr>
+<tr>
+<td><code>make git_commit</code></td>
+<td>Commit changes in logical groups</td>
+</tr>
+<tr>
+<td><code>make git_push</code></td>
+<td>Push current branch to remote</td>
+</tr>
+<tr>
+<td><code>make git_merge_main</code></td>
+<td>Merge current branch to main branch</td>
+</tr>
+<tr>
+<td><code>make git_status</code></td>
+<td>Show git status</td>
+</tr>
+<tr>
+<td><code>make help</code></td>
+<td>Show all available commands</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bootstrap-makefile-commands">Bootstrap Makefile Commands<a class="headerlink" href="#bootstrap-makefile-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make -C bootstrap start-localstack</code></td>
+<td>Start LocalStack container</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap local-init</code></td>
+<td>Initialize Terraform for LocalStack</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap local-apply</code></td>
+<td>Apply changes to LocalStack</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap aws-prepare</code></td>
+<td>Package Lambda for AWS deployment</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap aws-bootstrap-dryrun</code></td>
+<td>Run AWS bootstrap dry run</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap help</code></td>
+<td>Show all bootstrap commands</td>
+</tr>
+</tbody>
+</table>
+<h3 id="docker-based-bootstrap-commands">Docker-based Bootstrap Commands<a class="headerlink" href="#docker-based-bootstrap-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make -C bootstrap docker-build</code></td>
+<td>Build Docker images for AWS and LocalStack</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-aws</code></td>
+<td>Start AWS environment in Docker</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-localstack</code></td>
+<td>Start LocalStack environment in Docker</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-aws-setup-state</code></td>
+<td>Set up Terraform state in AWS using Docker</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-aws-bootstrap-dryrun</code></td>
+<td>Run AWS bootstrap dry run in Docker</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-localstack-bootstrap-dryrun</code></td>
+<td>Run LocalStack bootstrap dry run in Docker</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-test</code></td>
+<td>Test both Docker environments</td>
+</tr>
+<tr>
+<td><code>make -C bootstrap docker-clean</code></td>
+<td>Clean up Docker resources</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aws-credentials">🔐 AWS Credentials<a class="headerlink" href="#aws-credentials" title="Permanent link">&para;</a></h2>
+<h3 id="required-credentials">Required Credentials<a class="headerlink" href="#required-credentials" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Credential</th>
+<th>Description</th>
+<th>Secret Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS Account ID</strong></td>
+<td>Your 12-digit AWS account number</td>
+<td><code>AWS_ACCOUNT_ID</code></td>
+</tr>
+<tr>
+<td><strong>Access Key ID</strong></td>
+<td>AWS access key for authentication</td>
+<td><code>AWS_ACCESS_KEY_ID</code></td>
+</tr>
+<tr>
+<td><strong>Secret Access Key</strong></td>
+<td>AWS secret key for authentication</td>
+<td><code>AWS_SECRET_ACCESS_KEY</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="setup-process">Setup Process<a class="headerlink" href="#setup-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Navigate to repository settings</strong></li>
+<li>Go to your GitHub repository</li>
+<li>
+<p>Click "Settings" → "Secrets and variables" → "Actions"</p>
+</li>
+<li>
+<p><strong>Add the required secrets</strong>:
+   <div class="highlight"><pre><span></span><code>AWS_ACCOUNT_ID         # Your 12-digit AWS account ID
+AWS_ACCESS_KEY_ID      # Your AWS access key
+AWS_SECRET_ACCESS_KEY  # Your AWS secret key
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="usage-in-workflows">Usage in Workflows<a class="headerlink" href="#usage-in-workflows" title="Permanent link">&para;</a></h3>
+<p>The GitHub Actions workflows automatically use these secrets:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_ACCESS_KEY_ID }}</span>
+<span class="w">  </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_SECRET_ACCESS_KEY }}</span>
+<span class="w">  </span><span class="nt">AWS_ACCOUNT_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.AWS_ACCOUNT_ID }}</span>
+<span class="w">  </span><span class="nt">AWS_DEFAULT_REGION</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eu-west-2</span>
+</code></pre></div>
+<h3 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use Secrets</strong></td>
+<td>Never commit credentials to the repository</td>
+</tr>
+<tr>
+<td><strong>Limit Permissions</strong></td>
+<td>Use IAM roles with minimal required access</td>
+</tr>
+<tr>
+<td><strong>Rotate Keys</strong></td>
+<td>Regularly change access keys</td>
+</tr>
+<tr>
+<td><strong>Monitor Activity</strong></td>
+<td>Watch for unusual AWS account activity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment-variables">🌍 Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<h3 id="environment-structure">Environment Structure<a class="headerlink" href="#environment-structure" title="Permanent link">&para;</a></h3>
+<p><img alt="Environment Variables Flow" src="https://mermaid.ink/img/pako:eNp1ksFqwzAMhl9F-NRCXyDQQw9bKYUNtl56ETLWEjOcyMhyxyB594nEhbXQnWT9_z99kjdUziFqVK_4cOQJPFqPgRJYCMxJBPZgKdCMNmAiS5FCYOcpwYTOUqDXYCjQO_qEgZxlP1MIFNlToBHHGSKNZMFjILvgGMgvOEZyC46JhoVjJrtwLDTNHAu5mWOlbuJYyU8cG7ULx0bNzLFTvXDs5CeOg-qF46Bm5jjITxwntTPHSe3CcZKfOC6qFo6L6pnjIj9x3FSNjpvKwXFTMThuciPjTfngeJPvHR_Kro6P8r3jU9nV8Sl_c3yW7Ryf8p3jS9nW8SXfOr7Kto6v8q3ju2zr-C7fOH7Kto6f8o3jV9nW8avs4vhd1jt-l_WO_2Wd43_Z2vG_rHP8K1s7_pV1jv9la8e_ss7xXbZ2fJf_AK6Jqzc?type=png" /></p>
+<h3 id="file-structure">File Structure<a class="headerlink" href="#file-structure" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Root</strong></td>
+<td><code>.env.base</code></td>
+<td>Common settings for all environments</td>
+</tr>
+<tr>
+<td><strong>Root</strong></td>
+<td><code>.env.&lt;environment&gt;</code></td>
+<td>Environment-specific settings</td>
+</tr>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td><code>bootstrap/.env.base</code></td>
+<td>Common bootstrap settings</td>
+</tr>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td><code>bootstrap/.env.&lt;environment&gt;</code></td>
+<td>Bootstrap-specific settings</td>
+</tr>
+<tr>
+<td><strong>Environments</strong></td>
+<td><code>bootstrap/environments/aws/.env.aws</code></td>
+<td>AWS-specific variables</td>
+</tr>
+<tr>
+<td><strong>Environments</strong></td>
+<td><code>bootstrap/environments/localstack/.env.local</code></td>
+<td>LocalStack-specific variables</td>
+</tr>
+<tr>
+<td><strong>Tests</strong></td>
+<td><code>tests/.env.test</code></td>
+<td>Test-specific variables</td>
+</tr>
+<tr>
+<td><strong>Tests</strong></td>
+<td><code>tests/.env.local-test</code></td>
+<td>Local test variables for GitHub Actions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="loading-order">Loading Order<a class="headerlink" href="#loading-order" title="Permanent link">&para;</a></h3>
+<p>Variables are loaded in the following order, with later files overriding earlier ones:</p>
+<ol>
+<li><code>.env.base</code> → 2. <code>.env.&lt;environment&gt;</code> → 3. <code>bootstrap/.env.base</code> → 4. <code>bootstrap/.env.&lt;environment&gt;</code></li>
+</ol>
+<h3 id="example-variables">Example Variables<a class="headerlink" href="#example-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Common Variables (.env.base)</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>your-aws-access-key
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>your-aws-secret-key
+<span class="nv">AWS_ACCOUNT_ID</span><span class="o">=</span>your-aws-account-id
+<span class="nv">PROJECT_NAME</span><span class="o">=</span>fastapi-project
+
+<span class="c1"># Environment Variables (.env.&lt;environment&gt;)</span>
+<span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>eu-west-2
+<span class="nv">ENVIRONMENT</span><span class="o">=</span>dev
+
+<span class="c1"># AWS-Specific Variables</span>
+<span class="nv">AWS_BOOTSTRAP_ROLE_NAME</span><span class="o">=</span>terraform-bootstrap-role
+<span class="nv">AWS_BOOTSTRAP_POLICY_NAME</span><span class="o">=</span>terraform-bootstrap-policy
+</code></pre></div>
+<h2 id="development-workflow">🔄 Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Bootstrap</strong> infrastructure provides foundational resources</li>
+<li><strong>Deploy</strong> main infrastructure using bootstrapped resources</li>
+<li><strong>Test</strong> changes locally using LocalStack</li>
+<li><strong>Contribute</strong> by creating pull requests</li>
+</ol>
+<h2 id="git-workflow">🌿 Git Workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h2>
+<p>This project follows a trunk-based development model to maintain code quality and facilitate collaboration.</p>
+<h3 id="branch-structure">Branch Structure<a class="headerlink" href="#branch-structure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>main</code>: Production branch (protected)</li>
+<li><code>feat/*</code>: Feature branches</li>
+<li><code>fix/*</code>: Bug fix branches</li>
+</ul>
+<h3 id="environment-structure_1">Environment Structure<a class="headerlink" href="#environment-structure_1" title="Permanent link">&para;</a></h3>
+<p>Instead of using separate branches for different environments, we use folder-based environments:</p>
+<ul>
+<li><code>environments/stg/</code>: Configuration for the staging environment.</li>
+<li><code>environments/prod/</code>: Configuration for the production environment.</li>
+</ul>
+<h3 id="git-commands">Git Commands<a class="headerlink" href="#git-commands" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make git_feature</code></td>
+<td>Create a new feature branch</td>
+</tr>
+<tr>
+<td><code>make git_fix</code></td>
+<td>Create a new fix branch</td>
+</tr>
+<tr>
+<td><code>make git_commit</code></td>
+<td>Commit changes in logical groups</td>
+</tr>
+<tr>
+<td><code>make git_push</code></td>
+<td>Push current branch to remote</td>
+</tr>
+<tr>
+<td><code>make git_merge_main</code></td>
+<td>Merge current branch to main branch</td>
+</tr>
+<tr>
+<td><code>make git_status</code></td>
+<td>Show git status</td>
+</tr>
+</tbody>
+</table>
+<p>For detailed information about the Git workflow, see <a href="BRANCHING.md">BRANCHING.md</a>.</p>
+<p>An example script demonstrating the Git workflow is available in <a href="examples/git-workflow-example.sh">examples/git-workflow-example.sh</a>.</p>
+<h2 id="license">📄 License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>See <a href="LICENSE">LICENSE</a> file.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>

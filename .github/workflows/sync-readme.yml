@@ -1,0 +1,55 @@
+name: Sync README Files
+
+on:
+  # Run on schedule
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v3
+        with:
+          path: docs-repo
+          
+      - name: Checkout app repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-app
+          path: app-repo
+          
+      - name: Checkout release repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-release
+          path: release-repo
+          
+      - name: Checkout infra repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-infra
+          path: infra-repo
+          
+      - name: Sync README files
+        run: |
+          mkdir -p docs-repo/docs/app
+          mkdir -p docs-repo/docs/release
+          mkdir -p docs-repo/docs/infra
+          
+          # Copy main README files
+          cp app-repo/README.md docs-repo/docs/app/README.md
+          cp release-repo/README.md docs-repo/docs/release/README.md
+          cp infra-repo/README.md docs-repo/docs/infra/README.md
+          
+      - name: Commit and push changes
+        run: |
+          cd docs-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add docs/
+          git commit -m "Sync README files from source repositories" || echo "No changes to commit"
+          git push

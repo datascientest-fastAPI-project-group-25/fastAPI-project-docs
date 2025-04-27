@@ -4,6 +4,11 @@ on:
   workflow_dispatch:  # Manual trigger
   schedule:
     - cron: '0 0 * * *'  # Run daily at midnight UTC
+  repository_dispatch:
+    types: [sync-docs]  # Triggered by other repositories
+  push:
+    branches:
+      - main  # Run when changes are pushed to main branch
 
 jobs:
   sync-docs:
@@ -37,17 +42,40 @@ jobs:
       - name: Sync app documentation
         run: |
           mkdir -p docs-repo/docs/app
-          # Copy README
+          mkdir -p docs-repo/docs/app/frontend
+          mkdir -p docs-repo/docs/app/backend
+
+          # Copy main README
           cp app-repo/README.md docs-repo/docs/app/README.md
+
+          # Copy frontend README if it exists
+          if [ -f "app-repo/frontend/README.md" ]; then
+            cp app-repo/frontend/README.md docs-repo/docs/app/frontend/README.md
+          fi
+
+          # Copy backend README if it exists
+          if [ -f "app-repo/backend/README.md" ]; then
+            cp app-repo/backend/README.md docs-repo/docs/app/backend/README.md
+          fi
+
           # Copy docs folder if it exists
           if [ -d "app-repo/docs" ]; then
-            cp -r app-repo/docs/* docs-repo/docs/app/
+            mkdir -p docs-repo/docs/app/docs
+            cp -r app-repo/docs/* docs-repo/docs/app/docs/
           fi
+
+          # Copy scripts documentation if it exists
+          if [ -d "app-repo/scripts" ] && [ -f "app-repo/scripts/README.md" ]; then
+            mkdir -p docs-repo/docs/app/scripts
+            cp app-repo/scripts/README.md docs-repo/docs/app/scripts/README.md
+          fi
+
           # Copy monitoring and logging docs if they exist
           if [ -d "app-repo/monitoring" ]; then
             mkdir -p docs-repo/docs/app/monitoring
             cp -r app-repo/monitoring/* docs-repo/docs/app/monitoring/
           fi
+
           if [ -d "app-repo/logging" ]; then
             mkdir -p docs-repo/docs/app/logging
             cp -r app-repo/logging/* docs-repo/docs/app/logging/
@@ -56,17 +84,35 @@ jobs:
       - name: Sync release documentation
         run: |
           mkdir -p docs-repo/docs/release
-          # Copy README
+          mkdir -p docs-repo/docs/release/docs
+
+          # Copy main README
           cp release-repo/README.md docs-repo/docs/release/README.md
+
           # Copy docs folder if it exists
           if [ -d "release-repo/docs" ]; then
-            cp -r release-repo/docs/* docs-repo/docs/release/
+            cp -r release-repo/docs/* docs-repo/docs/release/docs/
           fi
+
+          # Copy specific documentation files if they exist
+          if [ -f "release-repo/release-strategy.md" ]; then
+            cp release-repo/release-strategy.md docs-repo/docs/release/release-strategy.md
+          fi
+
+          if [ -f "release-repo/quick-start.md" ]; then
+            cp release-repo/quick-start.md docs-repo/docs/release/quick-start.md
+          fi
+
+          if [ -f "release-repo/troubleshooting.md" ]; then
+            cp release-repo/troubleshooting.md docs-repo/docs/release/troubleshooting.md
+          fi
+
           # Copy monitoring and logging docs if they exist
           if [ -d "release-repo/monitoring" ]; then
             mkdir -p docs-repo/docs/release/monitoring
             cp -r release-repo/monitoring/* docs-repo/docs/release/monitoring/
           fi
+
           if [ -d "release-repo/logging" ]; then
             mkdir -p docs-repo/docs/release/logging
             cp -r release-repo/logging/* docs-repo/docs/release/logging/
@@ -75,17 +121,37 @@ jobs:
       - name: Sync infra documentation
         run: |
           mkdir -p docs-repo/docs/infra
-          # Copy README
+          mkdir -p docs-repo/docs/infra/examples/git-workflow
+
+          # Copy main README
           cp infra-repo/README.md docs-repo/docs/infra/README.md
+
           # Copy docs folder if it exists
           if [ -d "infra-repo/docs" ]; then
-            cp -r infra-repo/docs/* docs-repo/docs/infra/
+            mkdir -p docs-repo/docs/infra/docs
+            cp -r infra-repo/docs/* docs-repo/docs/infra/docs/
           fi
+
+          # Copy specific documentation files if they exist
+          if [ -f "infra-repo/BRANCHING.md" ]; then
+            cp infra-repo/BRANCHING.md docs-repo/docs/infra/BRANCHING.md
+          fi
+
+          if [ -f "infra-repo/bootstrap-README.md" ]; then
+            cp infra-repo/bootstrap-README.md docs-repo/docs/infra/bootstrap-README.md
+          fi
+
+          # Copy examples if they exist
+          if [ -d "infra-repo/examples" ] && [ -d "infra-repo/examples/git-workflow" ]; then
+            cp -r infra-repo/examples/git-workflow/* docs-repo/docs/infra/examples/git-workflow/
+          fi
+
           # Copy monitoring and logging docs if they exist
           if [ -d "infra-repo/monitoring" ]; then
             mkdir -p docs-repo/docs/infra/monitoring
             cp -r infra-repo/monitoring/* docs-repo/docs/infra/monitoring/
           fi
+
           if [ -d "infra-repo/logging" ]; then
             mkdir -p docs-repo/docs/infra/logging
             cp -r infra-repo/logging/* docs-repo/docs/infra/logging/
@@ -101,7 +167,18 @@ jobs:
         run: |
           cd docs-repo
           git add .
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Sync all documentation from repositories" && git push)
+
+          # Get current date for the commit message
+          CURRENT_DATE=$(date +"%Y-%m-%d %H:%M:%S")
+
+          # Check if there are changes to commit
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "docs: sync documentation from all repositories on ${CURRENT_DATE}"
+            git push
+            echo "Documentation synchronized successfully!"
+          else
+            echo "No changes to commit. Documentation is already up to date."
+          fi
 
       - name: Trigger docs build
         if: success()

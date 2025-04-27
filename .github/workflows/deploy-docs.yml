@@ -74,6 +74,8 @@ jobs:
           echo "Setting up GitHub Pages..."
           # Create a .nojekyll file to bypass Jekyll processing
           touch site/.nojekyll
+          # Create a simple test file to verify GitHub Pages is working
+          echo "<html><body><h1>GitHub Pages Test</h1><p>This is a test page.</p></body></html>" > site/test.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -86,6 +88,7 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_message: 'Deploy documentation to GitHub Pages'
+          full_commit_message: 'Deploy documentation to GitHub Pages [skip ci]'
 
       - name: Create GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

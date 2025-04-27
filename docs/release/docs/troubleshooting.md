@@ -1,127 +1,160 @@
 # Troubleshooting Guide
 
-This guide provides solutions for common issues encountered during deployment and operation.
+This guide provides solutions to common issues you might encounter when using the release strategy, ArgoCD, and k3d.
 
-## Deployment Issues
+## GitHub Actions Workflow Issues
 
-### Helm Chart Installation Fails
+### PR Automation Workflow Fails
 
-**Symptoms:**
-- Helm chart installation fails with errors
-- Kubernetes resources are not created
+**Issue**: The PR automation workflow fails when pushing a branch.
 
-**Solutions:**
-1. Verify Helm chart values
+**Solution**:
+1. Check if you have the correct branch naming convention (`feat/*` or `fix/*`)
+2. Verify that the GitHub token has the necessary permissions
+3. Create the PR manually if needed:
+   ```bash
+   gh pr create --title "Your PR title" --body "Your PR description" --base main
+   ```
+
+### Helm and ArgoCD Tests Workflow Fails
+
+**Issue**: The Helm and ArgoCD tests workflow fails.
+
+**Solution**:
+1. Check if your Helm charts are valid:
+   ```bash
+   helm lint ./charts/fastapi -f ./config/helm/staging.yaml
+   ```
+2. Verify that the ArgoCD configuration is correct:
+   ```bash
+   kubectl apply --dry-run=client -f config/argocd/staging.yaml
+   ```
+3. Make sure all required files have newlines at the end
+4. Check for YAML formatting issues
+
+## ArgoCD Issues
+
+### Cannot Login to ArgoCD
+
+**Issue**: Unable to login to ArgoCD.
+
+**Solution**:
+1. Reset the admin password:
+   ```bash
+   kubectl -n argocd patch secret argocd-initial-admin-secret \
+     -p '{"stringData": {"password": "admin"}}'
+   ```
+2. Restart the ArgoCD server:
+   ```bash
+   kubectl rollout restart deployment argocd-server -n argocd
+   ```
+3. Try logging in again with username `admin` and password `admin`
+
+### Cannot Generate ArgoCD API Key
+
+**Issue**: Unable to generate an ArgoCD API key.
+
+**Solution**:
+1. Update the ArgoCD configuration to enable API key generation:
+   ```bash
+   kubectl patch configmap argocd-cm -n argocd --type merge -p '{"data": {"accounts.admin": "apiKey"}}'
+   ```
+2. Restart the ArgoCD server:
+   ```bash
+   kubectl rollout restart deployment argocd-server -n argocd
+   ```
+3. Try generating the API key again:
+   ```bash
+   argocd account generate-token --account admin
+   ```
+
+### Application Not Syncing
+
+**Issue**: ArgoCD application is not syncing.
+
+**Solution**:
+1. Check the application status:
+   ```bash
+   argocd app get <app-name>
+   ```
+2. Check for sync errors:
+   ```bash
+   argocd app logs <app-name>
+   ```
+3. Force a sync:
+   ```bash
+   argocd app sync <app-name> --force
+   ```
+
+## k3d Issues
+
+### Cluster Creation Fails
+
+**Issue**: k3d cluster creation fails.
+
+**Solution**:
+1. Check if there are any existing clusters:
+   ```bash
+   k3d cluster list
+   ```
+2. Delete existing cluster if needed:
+   ```bash
+   k3d cluster delete <cluster-name>
+   ```
+3. Try creating with a different port:
+   ```bash
+   k3d cluster create argocd-cluster --servers 1 --agents 1 --port 8082:80@loadbalancer
+   ```
+
+### Port Conflict
+
+**Issue**: Port conflict when creating a k3d cluster.
+
+**Solution**:
+1. Find which process is using the port:
+   ```bash
+   lsof -i :<port>
+   ```
+2. Stop the process or use a different port:
+   ```bash
+   k3d cluster create argocd-cluster --servers 1 --agents 1 --port <different-port>:80@loadbalancer
+   ```
+
+## Helm Chart Issues
+
+### Helm Chart Validation Fails
+
+**Issue**: Helm chart validation fails.
+
+**Solution**:
+1. Check the chart for syntax errors:
    ```bash
    helm lint ./charts/fastapi
    ```
-
-2. Check Kubernetes cluster connectivity
+2. Validate the values files:
    ```bash
-   kubectl cluster-info
+   helm lint ./charts/fastapi -f ./config/helm/staging.yaml
    ```
+3. Check for common issues:
+   - Missing newlines at the end of files
+   - Invalid YAML formatting
+   - Type mismatches in values
 
-3. Validate Kubernetes resources
+### Chart Installation Fails
+
+**Issue**: Helm chart installation fails.
+
+**Solution**:
+1. Check the chart dependencies:
    ```bash
-   helm template ./charts/fastapi | kubectl apply --dry-run=client -f -
+   helm dependency update ./charts/fastapi
    ```
-
-### Container Image Pull Failures
-
-**Symptoms:**
-- Pods stuck in "ImagePullBackOff" state
-- Error messages about image pull failures
-
-**Solutions:**
-1. Verify image name and tag
+2. Validate the chart:
    ```bash
-   kubectl describe pod <pod-name>
+   helm template ./charts/fastapi -f ./config/helm/staging.yaml
    ```
+3. Check for resource conflicts or missing resources
 
-2. Check container registry credentials
-   ```bash
-   kubectl get secret <registry-secret> -o yaml
-   ```
+## Need More Help?
 
-3. Manually pull the image to verify access
-   ```bash
-   docker pull <image-name>:<tag>
-   ```
-
-## Runtime Issues
-
-### Application Crashes
-
-**Symptoms:**
-- Pods restarting frequently
-- Error messages in container logs
-
-**Solutions:**
-1. Check container logs
-   ```bash
-   kubectl logs <pod-name>
-   ```
-
-2. Verify environment variables
-   ```bash
-   kubectl describe pod <pod-name>
-   ```
-
-3. Check resource constraints
-   ```bash
-   kubectl describe pod <pod-name> | grep -A 5 Limits
-   ```
-
-### Database Connection Issues
-
-**Symptoms:**
-- Application logs show database connection errors
-- Intermittent failures
-
-**Solutions:**
-1. Verify database service is running
-   ```bash
-   kubectl get pods -l app=postgres
-   ```
-
-2. Check database credentials
-   ```bash
-   kubectl get secret <db-secret> -o yaml
-   ```
-
-3. Test database connection from a temporary pod
-   ```bash
-   kubectl run -it --rm --image=postgres:12 pg-client -- psql -h postgres -U postgres
-   ```
-
-## Performance Issues
-
-### Slow Response Times
-
-**Symptoms:**
-- API requests take longer than expected
-- Timeouts in client applications
-
-**Solutions:**
-1. Check resource usage
-   ```bash
-   kubectl top pods
-   ```
-
-2. Analyze application metrics in Grafana
-   ```bash
-   kubectl port-forward svc/grafana 3000:3000
-   ```
-
-3. Scale up resources or replicas
-   ```bash
-   kubectl scale deployment <deployment-name> --replicas=3
-   ```
-
-## Getting Help
-
-If you're unable to resolve an issue using this guide:
-
-1. Check the GitHub issues for similar problems
-2. Join the project's Slack channel for community support
-3. Open a new issue with detailed information about the problem
+If you're still experiencing issues, please open an issue on the repository or contact the team for assistance.

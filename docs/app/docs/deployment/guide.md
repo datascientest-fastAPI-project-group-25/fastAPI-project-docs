@@ -1,39 +1,28 @@
-# Deployment Guide
+# Deployment Guide for DevOps Demo Application
 
-This guide provides instructions for deploying the FastAPI application to various environments.
+This document describes how to deploy the application to AWS ECS using GitHub Actions.
 
 ## Prerequisites
 
-- Docker installed
-- Access to the container registry
-- Kubernetes cluster access (for production deployments)
+## GitHub Actions Secrets
 
-## Development Deployment
+The following secrets need to be configured in your GitHub repository:
 
-For local development, use the following commands:
+## CI/CD Pipeline
 
-```bash
-# Start the development environment
-docker-compose up -d
-```
+The CI/CD pipeline consists of the following stages:
 
-## Staging Deployment
+1. **Build and Test**: Builds the application and runs tests
+2. **Build and Push Docker Images**: Builds Docker images for frontend and backend and pushes them to ECR
+3. **Deploy to Staging**: Deploys the application to the staging environment
+4. **Deploy to Production**: Deploys the application to the production environment (manual approval required)
 
-Staging deployments are handled automatically by the CI/CD pipeline when changes are merged to the staging branch.
+## AWS Resources
 
-## Production Deployment
+The application requires the following AWS resources:
 
-Production deployments follow a more controlled process:
+## Infrastructure as Code
 
-1. Create a release branch
-2. Run the release workflow
-3. Verify the deployment in the staging environment
-4. Approve the promotion to production
+The AWS infrastructure is managed using Terraform in a separate repository. The Terraform code creates all the necessary AWS resources and configures them for the application.
 
-## Troubleshooting
-
-If you encounter issues during deployment, check the following:
-
-- Container logs
-- CI/CD pipeline logs
-- Kubernetes pod status
+The ECS deployment uses the Docker images built and pushed by the GitHub Actions workflow.

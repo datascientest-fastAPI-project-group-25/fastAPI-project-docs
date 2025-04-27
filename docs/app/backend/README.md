@@ -11,10 +11,10 @@ The backend of our DevOps demo application is built with FastAPI, providing a hi
 - [Development Setup](#-development-setup)
   - [Docker-based Development](#docker-based-development)
   - [Local Development](#local-development)
-- [Project Structure](#-project-structure)
 - [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+- [Database](#-database)
 - [Testing](#-testing)
-- [Database Migrations](#-database-migrations)
 - [Deployment](#-deployment)
 
 ## ✨ Features
@@ -29,16 +29,16 @@ The backend of our DevOps demo application is built with FastAPI, providing a hi
 
 ## 📍 Requirements
 
+- [Docker](https://www.docker.com/) and Docker Compose
 - [Python](https://www.python.org/) 3.11+
-- [Docker](https://www.docker.com/) (recommended for development)
-- [PostgreSQL](https://www.postgresql.org/) (or use the Docker setup)
-- [UV](https://github.com/astral-sh/uv) (recommended for dependency management)
+- [uv](https://github.com/astral-sh/uv/) for Python package and environment management
+- [PostgreSQL](https://www.postgresql.org/) (when running locally without Docker)
 
 ## 🔧 Development Setup
 
 ### Docker-based Development
 
-The easiest way to get started is using Docker Compose from the project root:
+The easiest way to get started is using Docker Compose, which sets up all required services including the database.
 
 ```bash
 # From the project root directory
@@ -46,102 +46,108 @@ docker compose up -d
 ```
 
 This will start:
+
 - Backend API at http://api.localhost
 - PostgreSQL database
-- Redis for caching
-- Frontend application
+- Adminer (database management) at http://adminer.localhost
 
 ### Local Development
 
 For a more responsive development experience, you can run the backend locally.
 
-1. **Environment Setup**
+1. **Set up environment variables**
 
 ```bash
+# From the project root directory
+cp .env.example .env
+# Edit .env with your preferred settings
+```
+
+2. **Install dependencies**
+
+```bash
+# Navigate to backend directory
+cd backend
+
 # Create a virtual environment
-python -m venv .venv
+uv venv
 
 # Activate the virtual environment
-# On Windows
-.venv\Scripts\activate
-# On macOS/Linux
-source .venv/bin/activate
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-# Install dependencies with UV
-uv pip install -e ".[dev]"
+# Install dependencies
+uv pip install -e .
 ```
 
-2. **Database Setup**
-
-Make sure you have a PostgreSQL instance running, or use the one from Docker Compose:
+3. **Start the development server**
 
 ```bash
-# Start just the database
-docker compose up -d db
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-3. **Environment Variables**
+## 📖 API Documentation
 
-Create a `.env` file based on `.env.example`:
+FastAPI automatically generates interactive API documentation:
 
-```bash
-cp .env.example .env
-# Edit the .env file with your database credentials
-```
+- **Swagger UI**: http://localhost:8000/docs
 
-4. **Run Migrations**
+  - Interactive documentation with request/response examples
+  - Try out API endpoints directly from the browser
 
-```bash
-alembic upgrade head
-```
-
-5. **Start Development Server**
-
-```bash
-uvicorn app.main:app --reload
-```
-
-The API will be available at http://localhost:8000 with automatic reloading on code changes.
+- **ReDoc**: http://localhost:8000/redoc
+  - Alternative documentation interface
+  - More readable for complex APIs
 
 ## 📂 Project Structure
 
 ```
 backend/
-├── alembic/              # Database migrations
 ├── app/
-│   ├── api/              # API endpoints
-│   │   ├── deps.py       # Dependency injection
-│   │   ├── errors.py     # Error handlers
-│   │   └── routes/       # API route modules
-│   ├── core/             # Core functionality
-│   │   ├── config.py     # Application configuration
-│   │   ├── security.py   # Authentication and security
-│   │   └── events.py     # Application events
-│   ├── db/               # Database models and utilities
-│   │   ├── base.py       # Base model class
-│   │   ├── session.py    # Database session
-│   │   └── models/       # SQLModel models
-│   ├── schemas/          # Pydantic schemas
-│   ├── services/         # Business logic
-│   ├── utils/            # Utility functions
-│   └── main.py           # Application entry point
-├── tests/                # Test files
-├── pyproject.toml        # Project configuration
-└── alembic.ini           # Alembic configuration
+│   ├── api/
+│   │   ├── deps.py         # Dependency injection
+│   │   └── routes/         # API endpoints
+│   ├── core/               # Core functionality
+│   │   ├── config.py       # Configuration
+│   │   └── security.py     # Security utilities
+│   ├── crud/               # CRUD operations
+│   ├── db/                 # Database setup
+│   ├── models/             # SQLModel models
+│   ├── schemas/            # Pydantic schemas
+│   ├── tests/              # Tests
+│   └── main.py             # Application entry point
+└── pyproject.toml          # Project dependencies
 ```
 
-## 📚 API Documentation
+## 💾 Database
 
-FastAPI automatically generates interactive API documentation:
+### Migrations
 
-- **Swagger UI**: http://api.localhost/docs
-- **ReDoc**: http://api.localhost/redoc
+The application uses Alembic for database migrations:
 
-These provide a complete reference of all API endpoints, request/response schemas, and allow you to test the API directly from the browser.
+```bash
+# Generate a new migration
+alembic revision --autogenerate -m "description"
+
+# Apply migrations
+alembic upgrade head
+```
+
+### Database Models
+
+Models are defined using SQLModel, which combines SQLAlchemy and Pydantic:
+
+```python
+from sqlmodel import Field, SQLModel
+
+class User(SQLModel, table=True):
+    id: int = Field(default=None, primary_key=True)
+    email: str = Field(unique=True, index=True)
+    # ...
+```
 
 ## 🧪 Testing
 
-The backend includes comprehensive tests:
+The backend includes a comprehensive test suite using pytest:
 
 ```bash
 # Run all tests
@@ -151,39 +157,11 @@ pytest
 pytest --cov=app
 
 # Run specific test file
-pytest tests/api/test_users.py
-
-# Run tests with verbose output
-pytest -v
-```
-
-## 🔄 Database Migrations
-
-Database migrations are managed with Alembic:
-
-```bash
-# Create a new migration
-alembic revision --autogenerate -m "description of changes"
-
-# Apply migrations
-alembic upgrade head
-
-# Revert to a specific migration
-alembic downgrade <revision>
+pytest app/tests/api/routes/test_users.py
 ```
 
 ## 🚀 Deployment
 
-The application is designed to be deployed in a containerized environment:
+The backend is designed to be deployed as a Docker container to AWS ECS. The deployment is handled automatically by GitHub Actions when changes are pushed to the appropriate branches.
 
-1. **Build the Docker image**
-   ```bash
-   docker build -t fastapi-app:latest .
-   ```
-
-2. **Run the container**
-   ```bash
-   docker run -p 8000:8000 --env-file .env fastapi-app:latest
-   ```
-
-For production deployment, see the [Deployment Guide](../deployment/guide.md) in the documentation.
+For more information on the deployment process, see the CI/CD Pipeline section in the main README.

@@ -2,9 +2,16 @@
 
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![Chakra UI](https://img.shields.io/badge/Chakra_UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white)
 
-The frontend of our DevOps demo application is a modern, responsive web interface built with cutting-edge technologies.
+The frontend of our DevOps demo application is a modern, responsive web interface built with cutting-edge technologies:
 
-## 📋 Table of Contents
+- **[Vite](https://vitejs.dev/)**: Next-generation frontend tooling
+- **[React](https://reactjs.org/)**: Component-based UI library
+- **[TypeScript](https://www.typescriptlang.org/)**: Type-safe JavaScript
+- **[TanStack Query](https://tanstack.com/query)**: Data fetching and state management
+- **[TanStack Router](https://tanstack.com/router)**: Type-safe routing
+- **[Chakra UI](https://chakra-ui.com/)**: Accessible component library
+
+## 💻 Table of Contents
 
 - [Features](#-features)
 - [Requirements](#-requirements)
@@ -106,4 +113,52 @@ frontend/
 │   └── main.tsx           # Application entry point
 ├── .eslintrc.js         # ESLint configuration
 ├── package.json         # Dependencies and scripts
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts        # Vite configuration
 ```
+
+## 🧪 Testing
+
+The frontend includes a test suite using Vitest and React Testing Library:
+
+```bash
+# Run tests
+npm test
+
+# Run tests with coverage
+npm test -- --coverage
+
+# Run tests in watch mode
+npm test -- --watch
+```
+
+## 💾 Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The build output will be in the `dist` directory. You can preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 🚀 Deployment
+
+The frontend is designed to be deployed as a static site or as a Docker container. The deployment is handled automatically by GitHub Actions when changes are pushed to the appropriate branches.
+
+### Environment Variables
+
+The frontend uses environment variables for configuration. In development, these are defined in `.env.development`. For production, they are injected during the build process.
+
+Key environment variables:
+
+| Variable       | Purpose                 | Example                   |
+| -------------- | ----------------------- | ------------------------- |
+| `VITE_API_URL` | Backend API URL         | `https://api.example.com` |
+| `VITE_APP_ENV` | Application environment | `production`              |
+
+For more information on the deployment process, see the CI/CD Pipeline section in the main README.

@@ -1,42 +1,76 @@
-# Git Hooks
+# Git Hooks with pre-commit
 
-This project uses Git hooks to enforce code quality and consistency.
+This project uses [pre-commit](https://pre-commit.com/) to manage Git hooks for code quality enforcement.
 
-## Pre-commit Hooks
+## What is pre-commit?
 
-The following pre-commit hooks are configured:
+pre-commit is a framework for managing and maintaining multi-language pre-commit hooks. It helps maintain code quality by running checks before commits and pushes, ensuring consistent code quality across the project.
 
-- Code formatting (Biome)
-- Linting (Ruff for Python, ESLint for JavaScript/TypeScript)
-- Type checking (MyPy for Python, TypeScript for JS)
-- Unit test execution
+## Features
 
-## Installation
+Our pre-commit configuration provides:
 
-The hooks are automatically installed when you run:
+- **Pre-commit hooks**:
+
+  - Code formatting with Black
+  - Linting and auto-fixing with Ruff
+  - Security scanning with Bandit
+  - Trailing whitespace removal
+  - YAML validation
+  - Merge conflict detection
+
+- **Pre-push hooks**:
+
+  - Running tests with pytest
+
+- **Commit message validation**:
+  - Enforcing conventional commit format
+
+## Setup
+
+To set up pre-commit in your development environment:
 
 ```bash
-make install
-```
+# Make the setup script executable
+chmod +x scripts/setup-precommit.sh
 
-## Manual Setup
+# Run the setup script
+./scripts/setup-precommit.sh
 
-If you need to set up the hooks manually:
-
-```bash
-# Install pre-commit
+# Or install directly
 pip install pre-commit
-
-# Install the hooks
-pre-commit install
+pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
+
+## Manual Usage
+
+You can manually run the hooks:
+
+```bash
+# Run all pre-commit hooks
+pre-commit run --all-files
+
+# Run all pre-push hooks
+pre-commit run --hook-stage pre-push --all-files
+
+# Run a specific hook
+pre-commit run black --all-files
+```
+
+## Configuration
+
+The pre-commit configuration is stored in `.pre-commit-config.yaml` at the root of the project. You can modify this file to add, remove, or customize hooks.
 
 ## Skipping Hooks
 
-In rare cases, you may need to skip the hooks:
+In rare cases when you need to bypass the hooks:
 
 ```bash
-git commit -m "Your message" --no-verify
+# Skip all hooks for a commit
+git commit --no-verify -m "Your message"
+
+# Skip specific hooks
+SKIP=black,ruff git commit -m "Your message"
 ```
 
-**Note**: This should be used sparingly and only in exceptional circumstances.
+**Note**: Skipping hooks should be done only in exceptional circumstances, as it bypasses important code quality checks.

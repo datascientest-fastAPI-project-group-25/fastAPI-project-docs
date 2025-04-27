@@ -1,12 +1,23 @@
-# FastAPI Project Scope Document
+# FastAPI Project Documentation
 
-## Project Objectives
--  Deploy a FastAPI-based monorepo application to AWS
--  Utilize Kubernetes for container orchestration
--  Implement Infrastructure as Code using Terraform with Terragrunt
--  Enhance CI/CD workflows with linting, dependency management, and security practices
--  Pipeline deployment for different environments (e.g., dev, staging, production)
--  Ensure scalability, security, and observability
+This repository serves as the central documentation hub for the FastAPI Project. It automatically synchronizes README files from all project repositories and presents them in a GitBook-style format.
+
+## Documentation Structure
+
+The documentation is organized by repository:
+
+- **[App Documentation](docs/app/README.md)** - Documentation for the main application (FastAPI backend and React frontend)
+- **[Release Documentation](docs/release/README.md)** - Documentation for release management and deployment
+- **[Infrastructure Documentation](docs/infra/README.md)** - Documentation for infrastructure as code
+
+## Automatic Synchronization
+
+This repository automatically pulls README files from the following repositories:
+- [fastAPI-project-app](https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-app)
+- [fastAPI-project-release](https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-release)
+- [fastAPI-project-infra](https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-infra)
+
+When a README file is updated in any of these repositories, it is automatically synchronized to this repository and published to the documentation site.
 
 ## Project Scope
 
@@ -70,9 +81,9 @@
 -  Week 2: Infrastructure as Code implementation with Terraform and Terragrunt
    - Kubernetes setup and Helm integration
 -  Week 3: Observability setup with Prometheus and Grafana
--  Week 4: CI/CD pipeline enhancement 
-    - linting 
-    - dependabot 
+-  Week 4: CI/CD pipeline enhancement
+    - linting
+    - dependabot
     - Security implementation and testing
 -  Week 7: Final testing and documentation
 -  Week 8: Presentation preparation and project closure

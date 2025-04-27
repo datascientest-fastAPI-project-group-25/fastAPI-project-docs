@@ -19,12 +19,52 @@ theme:
 
 nav:
   - Home: index.md
+  - Contributing: contributing.md
   - App:
     - Overview: app/README.md
+    - Documentation:
+      - API Documentation: app/docs/api-docs.md
+      - Deployment Guide: app/docs/deployment/guide.md
+      - Git Hooks: app/docs/git-hooks.md
+      - GitHub Actions: app/docs/workflow/github-actions.md
+    - Frontend:
+      - Overview: app/frontend/README.md
+    - Backend:
+      - Overview: app/backend/README.md
+    - Branching Strategy: app/BRANCHING_STRATEGY.md
+    - CI/CD Workflow: app/ci-cd-workflow.md
+    - Release Notes: app/release-notes.md
+    - Monitoring:
+      - Overview: app/monitoring/README.md
+    - Logging:
+      - Overview: app/logging/README.md
   - Release:
     - Overview: release/README.md
+    - Documentation:
+      - Release Strategy: release/docs/release-strategy.md
+      - Troubleshooting: release/docs/troubleshooting.md
+      - Quick Start: release/docs/quick-start.md
+      - Dockerfile Specification: release/dockerfile-spec.md
+    - AWS Architecture: release/aws-architecture-diagram.md
+    - AWS Infrastructure Guide: release/aws-infrastructure-guide.md
+    - Container Strategy: release/container-strategy.md
+    - Deployment Automation: release/deployment-automation.md
+    - Infrastructure Setup: release/infra-setup-guide.md
+    - Release Integration: release/RELEASE_INTEGRATION.md
+    - Monitoring:
+      - Overview: release/monitoring/README.md
+    - Logging:
+      - Overview: release/logging/README.md
   - Infrastructure:
     - Overview: infra/README.md
+    - Branching Strategy: infra/BRANCHING.md
+    - Bootstrap Guide: infra/bootstrap-README.md
+    - Examples:
+      - Git Workflow: infra/examples/git-workflow/example.sh
+    - Monitoring:
+      - Overview: infra/monitoring/README.md
+    - Logging:
+      - Overview: infra/logging/README.md
 
 markdown_extensions:
   - admonition

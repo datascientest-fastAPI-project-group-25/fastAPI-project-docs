@@ -1,0 +1,112 @@
+name: Sync All Documentation
+
+on:
+  workflow_dispatch:  # Manual trigger
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v3
+        with:
+          path: docs-repo
+
+      - name: Checkout app repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-app
+          path: app-repo
+
+      - name: Checkout release repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-release
+          path: release-repo
+
+      - name: Checkout infra repository
+        uses: actions/checkout@v3
+        with:
+          repository: datascientest-fastAPI-project-group-25/fastAPI-project-infra
+          path: infra-repo
+
+      - name: Sync app documentation
+        run: |
+          mkdir -p docs-repo/docs/app
+          # Copy README
+          cp app-repo/README.md docs-repo/docs/app/README.md
+          # Copy docs folder if it exists
+          if [ -d "app-repo/docs" ]; then
+            cp -r app-repo/docs/* docs-repo/docs/app/
+          fi
+          # Copy monitoring and logging docs if they exist
+          if [ -d "app-repo/monitoring" ]; then
+            mkdir -p docs-repo/docs/app/monitoring
+            cp -r app-repo/monitoring/* docs-repo/docs/app/monitoring/
+          fi
+          if [ -d "app-repo/logging" ]; then
+            mkdir -p docs-repo/docs/app/logging
+            cp -r app-repo/logging/* docs-repo/docs/app/logging/
+          fi
+
+      - name: Sync release documentation
+        run: |
+          mkdir -p docs-repo/docs/release
+          # Copy README
+          cp release-repo/README.md docs-repo/docs/release/README.md
+          # Copy docs folder if it exists
+          if [ -d "release-repo/docs" ]; then
+            cp -r release-repo/docs/* docs-repo/docs/release/
+          fi
+          # Copy monitoring and logging docs if they exist
+          if [ -d "release-repo/monitoring" ]; then
+            mkdir -p docs-repo/docs/release/monitoring
+            cp -r release-repo/monitoring/* docs-repo/docs/release/monitoring/
+          fi
+          if [ -d "release-repo/logging" ]; then
+            mkdir -p docs-repo/docs/release/logging
+            cp -r release-repo/logging/* docs-repo/docs/release/logging/
+          fi
+
+      - name: Sync infra documentation
+        run: |
+          mkdir -p docs-repo/docs/infra
+          # Copy README
+          cp infra-repo/README.md docs-repo/docs/infra/README.md
+          # Copy docs folder if it exists
+          if [ -d "infra-repo/docs" ]; then
+            cp -r infra-repo/docs/* docs-repo/docs/infra/
+          fi
+          # Copy monitoring and logging docs if they exist
+          if [ -d "infra-repo/monitoring" ]; then
+            mkdir -p docs-repo/docs/infra/monitoring
+            cp -r infra-repo/monitoring/* docs-repo/docs/infra/monitoring/
+          fi
+          if [ -d "infra-repo/logging" ]; then
+            mkdir -p docs-repo/docs/infra/logging
+            cp -r infra-repo/logging/* docs-repo/docs/infra/logging/
+          fi
+
+      - name: Configure Git
+        run: |
+          cd docs-repo
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push changes
+        run: |
+          cd docs-repo
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Sync all documentation from repositories" && git push)
+
+      - name: Trigger docs build
+        if: success()
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: build-docs

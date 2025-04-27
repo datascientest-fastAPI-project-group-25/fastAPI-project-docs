@@ -7,18 +7,54 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout code
+      - name: Checkout docs repository
         uses: actions/checkout@v3
 
-      - name: Run docs update script
-        run: |
-          # Add your docs update script here
-          # This could be generating new documentation, updating API docs, etc.
-          echo "Updating documentation..."
+      - name: Checkout source repository
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.client_payload.repo }}
+          path: source-repo
 
-      - name: Deploy updated docs
+      - name: Update documentation
+        run: |
+          # Extract repository name from full name
+          REPO_NAME=$(echo "${{ github.event.client_payload.repo }}" | cut -d'/' -f2)
+
+          # Determine target directory based on repository name
+          if [[ "$REPO_NAME" == *"app"* ]]; then
+            TARGET_DIR="docs/app"
+          elif [[ "$REPO_NAME" == *"release"* ]]; then
+            TARGET_DIR="docs/release"
+          elif [[ "$REPO_NAME" == *"infra"* ]]; then
+            TARGET_DIR="docs/infra"
+          else
+            echo "Unknown repository: $REPO_NAME"
+            exit 1
+          fi
+
+          # Create target directory if it doesn't exist
+          mkdir -p "$TARGET_DIR"
+
+          # Copy README file
+          cp source-repo/README.md "$TARGET_DIR/README.md"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add docs/
+          git commit -m "Update README from ${{ github.event.client_payload.repo }}" || echo "No changes to commit"
+          git push
+
+      - name: Build and deploy docs
+        run: |
+          pip install -r requirements.txt
+          mkdocs build
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,4 @@
-name: Deploy Documentation
+name: Build Documentation
 
 on:
   # Trigger on push to main branch
@@ -10,10 +10,14 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  # Build job
+  build:
     runs-on: ubuntu-latest
+    environment: github-pages
 
     steps:
       - name: Checkout code
@@ -70,13 +74,10 @@ jobs:
       - name: Build MkDocs site
         run: mkdocs build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          force_orphan: true
+          path: ./site
 
       - name: Create GitHub Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -91,11 +92,24 @@ jobs:
           RELEASE_DATE=$(date +"%Y.%m.%d")
 
           # Create a release tag
-          git tag -a "v$RELEASE_DATE" -m "Documentation release $RELEASE_DATE"
-          git push origin "v$RELEASE_DATE"
+          git tag -a "v$RELEASE_DATE" -m "Documentation release $RELEASE_DATE" || echo "Tag already exists"
+          git push origin "v$RELEASE_DATE" || echo "Tag already pushed"
 
           # Create a GitHub release
           gh release create "v$RELEASE_DATE" \
             --title "Documentation Release $RELEASE_DATE" \
             --notes "Documentation update released on $RELEASE_DATE" \
-            --target main
+            --target main || echo "Release already exists"
+
+  # Deployment job
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

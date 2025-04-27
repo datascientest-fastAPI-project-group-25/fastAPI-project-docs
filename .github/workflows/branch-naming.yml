@@ -1,0 +1,31 @@
+name: Branch Naming Convention
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - stg
+      - gh-pages
+
+permissions:
+  contents: read
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        
+      - name: Check branch name
+        run: |
+          echo "Branch name: ${{ env.BRANCH_NAME }}"
+          
+          # Check if branch name follows convention
+          if [[ ! "${{ env.BRANCH_NAME }}" =~ ^(feat|feature|fix|hotfix)/ ]]; then
+            echo "::error::Branch name must start with 'feat/', 'feature/', 'fix/', or 'hotfix/'"
+            exit 1
+          fi
+          
+          echo "Branch name follows convention"

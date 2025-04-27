@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: Deploy Documentation
 
 on:
   # Trigger on push to main branch
@@ -8,13 +8,18 @@ on:
   # Also trigger when changes are pushed to core repositories
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -28,7 +33,7 @@ jobs:
 
       - name: Build MkDocs site
         run: mkdocs build
-        
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -36,3 +41,25 @@ jobs:
           publish_dir: ./site
           publish_branch: gh-pages
           force_orphan: true
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.MACHINE_USER_TOKEN }}
+        run: |
+          # Install GitHub CLI
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+          # Get the current date for the release tag
+          RELEASE_DATE=$(date +"%Y.%m.%d")
+
+          # Create a release tag
+          git tag -a "v$RELEASE_DATE" -m "Documentation release $RELEASE_DATE"
+          git push origin "v$RELEASE_DATE"
+
+          # Create a GitHub release
+          gh release create "v$RELEASE_DATE" \
+            --title "Documentation Release $RELEASE_DATE" \
+            --notes "Documentation update released on $RELEASE_DATE" \
+            --target main

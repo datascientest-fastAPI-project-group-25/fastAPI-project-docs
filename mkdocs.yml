@@ -3,6 +3,7 @@ site_description: Documentation for the FastAPI Project
 site_author: datascientest-fastAPI-project-group-25
 site_url: https://datascientest-fastapi-project-group-25.github.io/fastAPI-project-docs/
 repo_url: https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs
+use_directory_urls: false
 
 theme:
   name: material
@@ -83,3 +84,4 @@ markdown_extensions:
 
 plugins:
   - search
+  - mermaid2

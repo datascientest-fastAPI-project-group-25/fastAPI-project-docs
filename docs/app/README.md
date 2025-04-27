@@ -1,38 +1,135 @@
-# DevOps Demo Application Documentation
+# 🚀 FastAPI Project App
 
-Welcome to the documentation for the DevOps Demo Application. This directory contains comprehensive documentation for all aspects of the project.
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-## Documentation Structure
+A modern full-stack application with FastAPI backend and React frontend.
 
-- **[Development](./development/)**
+![Dashboard](img/dashboard.png)
 
-  - [Development Guide](./development/guide.md) - How to set up and run the application for local development
-  - [Development Scripts](./development/scripts.md) - Utility scripts for development, testing, and deployment
+## 📚 Documentation
 
-- **[Deployment](./deployment/)**
+**[View Complete Documentation](https://github.com/datascientest-fastAPI-project-group-25/fastAPI-project-docs)**
 
-  - [Deployment Guide](./deployment/guide.md) - How to deploy the application to AWS ECS using GitHub Actions
+## 📋 Quick Links
 
-- **[Workflows](./workflows/)**
+- [Setup Guide](#-quick-setup)
+- [Architecture](#-architecture)
+- [Development](#-development)
+- [Screenshots](#-screenshots)
+- [Testing](#-testing)
+- [Troubleshooting](#-troubleshooting)
 
-  - _This directory will contain documentation for GitHub Actions workflows_
+## 🏗️ Architecture
 
-- **[Git Hooks](./git-hooks.md)** - Documentation for the pre-commit git hooks setup
+- **Frontend**: React, TypeScript, TanStack Query, Chakra UI
+- **Backend**: FastAPI, SQLModel, Pydantic
+- **Database**: PostgreSQL
+- **Infrastructure**: Docker, Traefik
+- **Build Tools**: pnpm, Biome, UV
 
-- **[Release Notes](./release-notes.md)** - Comprehensive changelog of all project changes
+## 🚀 Quick Setup
 
-## Component-Specific Documentation
+### Prerequisites
 
-- **[Backend README](../backend/README.md)** - Documentation specific to the backend application
-- **[Frontend README](../frontend/README.md)** - Documentation specific to the frontend application
+- Docker and Docker Compose
+- Python 3.11+
+- Git
 
-## Contributing to Documentation
+### Setup in 3 Steps
 
-When adding new documentation:
+1. **Clone and setup**
+   ```bash
+   git clone https://github.com/yourusername/fastAPI-project-app.git
+   cd fastAPI-project-app
+   make setup
+   ```
 
-1. Place it in the appropriate subdirectory based on its category
-2. Update this index file to include a link to the new documentation
-3. Follow the established Markdown formatting conventions
-4. Include clear headings, code examples, and explanations
+2. **Start the application**
+   ```bash
+   make up
+   ```
 
-For substantial documentation changes, please create a feature branch and submit a pull request.
+3. **Initialize the database**
+   ```bash
+   make init-db
+   ```
+
+## 💻 Development
+
+### Access Points
+
+- **Frontend**: http://dashboard.localhost
+- **Backend API**: http://api.localhost
+- **API Docs**: http://api.localhost/docs
+
+### Default Login
+
+- **Email**: admin@example.com
+- **Password**: See `FIRST_SUPERUSER_PASSWORD` in your `.env` file
+
+### Common Commands
+
+```bash
+make help      # Show all available commands
+make up        # Start all services
+make down      # Stop all services
+make restart   # Restart all services
+make test      # Run all tests
+```
+
+## 📸 Screenshots
+
+| Feature | Screenshot |
+|---------|------------|
+| **Dashboard** | ![Dashboard](img/dashboard.png) |
+| **API Documentation** | ![API Documentation](img/docs.png) |
+| **Login Screen** | ![Login Screen](img/login.png) |
+| **Item Management** | ![Dashboard with Items](img/dashboard-items.png) |
+| **Create New Item** | ![Create New Item](img/dashboard-create.png) |
+| **User Settings** | ![User Settings](img/dashboard-user-settings.png) |
+| **Dark Mode** | ![Dark Mode](img/dashboard-dark.png) |
+
+## 🔄 Workflow
+
+### Branching Strategy
+
+1. **Main Branch (`main`)**: Production-ready code
+2. **Development Branch (`dev`)**: Integration branch
+3. **Feature Branches (`feat/*`)**: For new features
+4. **Fix Branches (`fix/*`)**: For bug fixes
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+make test
+
+# Run specific tests
+make test-backend
+make test-frontend
+make test-e2e
+```
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **Docker Issues**
+   - Restart: `docker compose down && docker compose up -d`
+
+2. **Database Issues**
+   - Check credentials in `.env`
+   - Reset database: `make init-db`
+
+3. **Login Issues**
+   - Default login: admin@example.com
+   - Password: See `FIRST_SUPERUSER_PASSWORD` in `.env`
+   - Reset database: `docker compose down -v && make up && make init-db`
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feat/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feat/amazing-feature`)
+5. Open a Pull Request to the `dev` branch
